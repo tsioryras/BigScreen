@@ -27,73 +27,8 @@
 </head>
 
 <body>
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
-<div id="main-wrapper">
-    @guest
-    @else
-        <aside class="left-sidebar fixed-top" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav" id="sidebarnav">
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-@endguest
-
-
-<!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-@yield('content')
-<!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-{{--        <div class="page-breadcrumb">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12 d-flex no-block align-items-center">--}}
-{{--                    <h4 class="page-title">Dashboard-2</h4>--}}
-{{--                    <div class="ml-auto text-right">--}}
-{{--                        <nav aria-label="breadcrumb">--}}
-{{--                            <ol class="breadcrumb">--}}
-{{--                                <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--                                <li class="breadcrumb-item active" aria-current="page">Library</li>--}}
-{{--                            </ol>--}}
-{{--                        </nav>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-<!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
-{{--        <div class="container-fluid">--}}
-
-{{--        </div>--}}
-<!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-{{--        <footer class="footer text-center">--}}
-{{--            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.--}}
-{{--        </footer>--}}
-<!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-</div>
+    <div id="main-wrapper">
+        @yield('content')
+    </div>
 </body>
 </html>

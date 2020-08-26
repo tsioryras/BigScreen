@@ -76639,7 +76639,7 @@ function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    clssName: "card-header"
+    className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sondage de satisfaction")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_SurveyForm__WEBPACK_IMPORTED_MODULE_1__["default"], null))))));
@@ -76661,6 +76661,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_PageContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin/PageContent */ "./resources/js/components/admin/PageContent.js");
+/* harmony import */ var _admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin/MenuAdmin */ "./resources/js/components/admin/MenuAdmin.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -76676,8 +76677,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Dashboard = function Dashboard() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('Accueil'),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('home'),
       _useState2 = _slicedToArray(_useState, 2),
       currentAdminPage = _useState2[0],
       setCurrentAdminPage = _useState2[1];
@@ -76686,12 +76688,117 @@ var Dashboard = function Dashboard() {
     setCurrentAdminPage(page);
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_PageContent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "main-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onChangePage: onNavigateHandler,
+    url: "/",
     page: currentAdminPage
-  });
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_PageContent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    page: currentAdminPage
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/MenuAdmin.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/admin/MenuAdmin.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MenuItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MenuItem */ "./resources/js/components/admin/MenuItem.js");
+
+
+
+var MenuAdmin = function MenuAdmin(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    className: "left-sidebar fixed-top",
+    "data-sidebarbg": "skin5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "sidebar-nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "p-t-30"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "sidebar-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "sidebar-link waves-effect waves-dark sidebar-link",
+    href: props.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "logo-text"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "BIG SCREEN"))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "scroll-sidebar"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "sidebar-nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "p-t-30",
+    id: "sidebarnav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    page: "home",
+    item: "Accueil",
+    icon: "chart-bar",
+    currentPage: props.page,
+    onChangePage: props.onChangePage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    page: "question",
+    item: "Questions",
+    icon: "receipt",
+    currentPage: props.page,
+    onChangePage: props.onChangePage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    page: "answer",
+    item: "R\xE9ponses",
+    icon: "pencil",
+    currentPage: props.page,
+    onChangePage: props.onChangePage
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MenuAdmin);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/MenuItem.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/admin/MenuItem.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MenuItem = function MenuItem(props) {
+  var active = props.page === props.currentPage ? 'selected' : '';
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "sidebar-item " + active,
+    onClick: function onClick() {
+      return props.onChangePage(props.page);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sidebar-link waves-effect waves-dark"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: 'mdi mdi-' + props.icon
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "hide-menu"
+  }, props.item)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MenuItem);
 
 /***/ }),
 
@@ -76722,6 +76829,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var url;
 
 var PageContent = function PageContent(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
@@ -76729,22 +76837,17 @@ var PageContent = function PageContent(props) {
       content = _useState2[0],
       setContent = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      url = _useState4[0],
-      setUrl = _useState4[1];
-
   switch (props.page) {
-    case 'Questions':
-      setUrl('http://localhost:3000/administration/users');
+    case 'question':
+      url = 'http://localhost:3000/administration/users';
       break;
 
-    case 'Réponses':
-      setUrl('shttp://localhost:3000/administration/users');
+    case 'answer':
+      url = 'http://localhost:3000/administration/users';
       break;
 
     default:
-      setUrl('http://localhost:3000/administration/users');
+      url = 'http://localhost:3000/administration/users';
       break;
   }
 
@@ -76753,7 +76856,17 @@ var PageContent = function PageContent(props) {
   })["catch"](function (error) {
     console.log(error);
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "admin-page"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageContent);

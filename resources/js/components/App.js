@@ -7,7 +7,7 @@ function App() {
             <div className="row justify-content-center">
                 <div className="col-md-8 offset-md-1">
                     <div className="card">
-                        <div clssName="card-header">
+                        <div className="card-header">
                             <h1>Sondage de satisfaction</h1>
                         </div>
                         <div className="card-body">

@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import axios from "axios";
 
+let url;
 const PageContent = (props) => {
     const [content, setContent] = useState('');
-    const [url, setUrl] = useState('');
     switch (props.page) {
-        case 'Questions':
-            setUrl('http://localhost:3000/administration/users');
+        case 'question':
+            url = 'http://localhost:3000/administration/users';
             break;
-        case 'Réponses':
-            setUrl('shttp://localhost:3000/administration/users');
+        case 'answer':
+            url = 'http://localhost:3000/administration/users';
             break;
         default:
-            setUrl('http://localhost:3000/administration/users');
+            url = 'http://localhost:3000/administration/users';
             break;
 
     }
@@ -24,7 +24,17 @@ const PageContent = (props) => {
     });
 
     return (
-        <div>{content}</div>
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-md-8">
+                    <div className="card">
+                        <div id="admin-page">
+                            <div>{content}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 export default PageContent;
