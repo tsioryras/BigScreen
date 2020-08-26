@@ -32,29 +32,15 @@
     <header class="fixed-top btn-dark" data-navbarbg="skin5">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header" data-logobg="skin5">
-                {{--                <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">--}}
-                {{--                    <i class="ti-menu ti-close"></i></a>--}}
+                <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                    <i class="ti-menu ti-close"></i></a>
                 <a class="navbar-brand" href={{ url('/') }}>
-                    {{--                    <b class="logo-icon p-l-10">--}}
-                    {{--                        <img src="../../assets/images/logo-icon.png"--}}
-                    {{--                             alt={{ config('app.name', 'BIGSCREEN') }} class="light-logo"/>--}}
-                    {{--                    </b>--}}
                     <span class="logo-text">
-                             {{ config('app.name', 'BIGSCREEN') }}
-                        </span>
+                                 {{ config('app.name', 'BIG SCREEN') }}
+                    </span>
                 </a>
-            </div>
-            <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                 @guest
                 @else
-                    <ul class="navbar-nav float-left mr-auto">
-                        <li class="nav-item d-none d-md-block">
-                            <a class="nav-link sidebartoggler waves-effect waves-light"
-                               href="javascript:void(0)" data-sidebartype="mini-sidebar">
-                                <i class="mdi mdi-menu font-24"></i>
-                            </a>
-                        </li>
-                    </ul>
                     <ul class="navbar-nav float-right">
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
@@ -66,7 +52,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -75,33 +61,33 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest
                     </ul>
+                @endguest
             </div>
         </nav>
     </header>
-    @guest
-    @else
-        <aside class="left-sidebar" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                    href="index.html" aria-expanded="false"><i
-                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
-                        </li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                    href="charts.html" aria-expanded="false"><i
-                                        class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-@endguest
+{{--    @guest--}}
+{{--    @else--}}
+{{--        <aside class="left-sidebar fixed-top" data-sidebarbg="skin5">--}}
+{{--            <!-- Sidebar scroll-->--}}
+{{--            <div class="scroll-sidebar">--}}
+{{--                <!-- Sidebar navigation-->--}}
+{{--                <nav class="sidebar-nav">--}}
+{{--                    <ul id="sidebarnav" class="p-t-30">--}}
+{{--                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"--}}
+{{--                                                    href="index.html" aria-expanded="false"><i--}}
+{{--                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>--}}
+{{--                        </li>--}}
+{{--                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"--}}
+{{--                                                    href="charts.html" aria-expanded="false"><i--}}
+{{--                                        class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>--}}
+{{--                    </ul>--}}
+{{--                </nav>--}}
+{{--                <!-- End Sidebar navigation -->--}}
+{{--            </div>--}}
+{{--            <!-- End Sidebar scroll-->--}}
+{{--        </aside>--}}
+{{--@endguest--}}
 
 
 <!-- ============================================================== -->
