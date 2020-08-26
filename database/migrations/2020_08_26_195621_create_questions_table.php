@@ -14,12 +14,10 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->char('type', [1])->nullable(false);
-            $table->string('label')->nullable(false);
-            $table->json('choices')->nullable(true);
-            $table->dateTime('created_at')->default(now()); // DATETIME
-            $table->dateTime('updated_at')->nullable(); // DATETIME
+            $table->id();
+            $table->string('label', 255)->nullable(false);
+            $table->json('choices');
+            $table->timestamps();
         });
     }
 

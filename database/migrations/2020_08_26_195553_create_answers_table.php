@@ -14,12 +14,11 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->json('answer');
-            $table->string('url')->unique()->nullable(false);
-            $table->string('email')->unique()->nullable(false);
-            $table->dateTime('updated_at')->nullable(); // DATETIME
-            $table->dateTime('created_at')->default(now()); // DATETIME
+            $table->id();
+            $table->string('email', 50)->unique()->nullable(false);
+            $table->string('url', 255)->unique()->nullable(false);
+            $table->json('content')->nullable(false);
+            $table->timestamps();
         });
     }
 
