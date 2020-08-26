@@ -28,7 +28,7 @@ const PageContent = (props) => {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div id="admin-page">
+                        <div className="card-body">
                             <div>{content}</div>
                         </div>
                     </div>
