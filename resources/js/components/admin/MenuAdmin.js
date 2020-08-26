@@ -1,16 +1,19 @@
 import React from 'react';
 import MenuItem from './MenuItem';
+import logo from "../../../images/bigscreen_logo_white.png";
 
 const MenuAdmin = (props) => {
 
     return (
         <aside className="left-sidebar fixed-top" data-sidebarbg="skin5">
             <nav className="sidebar-nav">
-                <nav className="mt-2">
+                <nav className="mt-2 text-center">
                     <ul className="p-t-30">
                         <li className="sidebar-item">
                             <a className="sidebar-link waves-effect waves-dark sidebar-link" href={(props.url)}>
-                                <span className="logo-text"><h2>BIG SCREEN</h2></span>
+                                <span className="logo-text logo">
+                                     <img src={logo}/>
+                                </span>
                             </a>
                         </li>
                     </ul>

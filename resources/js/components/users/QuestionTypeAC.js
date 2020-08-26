@@ -6,7 +6,7 @@ const QuestionTypeAC = (props) => {
         return <div key={index} className="form-group row">
             <div className="col-md-9">
                 <div className="custom-control custom-radio">
-                    <input type="radio" className="custom-control-input" name={'question' + props.number}
+                    <input type="radio" className="custom-control-input" name={props.number}
                            id={'question' + props.number + index}
                            value={optionValue}
                            required/>
@@ -17,10 +17,10 @@ const QuestionTypeAC = (props) => {
         </div>
     });
     return (
-        <div className={'card mb-5 py-2 ' + props.display}>
+        <div className={'card question mb-5 py-3 ' + props.display}>
             <h3>{props.title}</h3>
             <label>{props.label}</label>
-            <section>
+            <section className={'possible-choice py-2'}>
                 {listOptions}
             </section>
         </div>

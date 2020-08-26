@@ -51,24 +51,25 @@ const SurveyFrom = () => {
     };
 
     const listQuestions = data.map(function (question, key) {
-            // const display = key === currentQuestion ? 'card' : 'd-none';
             const title = 'Question ' + (key + 1) + '/20';
             return <Question key={key} number={key + 1}
                              content={question}
                              type={question.type}
-                // display={display}
                              title={title}/>
         }
     );
     return (
         <div className="card">
             <div className="card-body wizard-content">
-                <form id="example-form" action="#" className="m-t-40">
+                <form action="#" className="m-t-40">
                     {listQuestions}
                     <div className="row">
-                        <div className="offset-md-8">
-                            <button className='btn btn-outline-success ' id="submit" name="submit"
-                                    type="submit">Finaliser
+                        <div className="offset-10">
+                            <button className="btn btn-success"
+                                    id="submit"
+                                    name="submit"
+                                    type="submit">
+                                Finaliser
                             </button>
                         </div>
                     </div>

@@ -1,0 +1,31 @@
+.left-sidebar {
+    position: fixed !important;
+}
+
+.logo img {
+    margin: 1rem 0;
+    width: 10rem;
+}
+
+span.logo img {
+    margin: auto;
+}
+
+#form-survey, .wizard-content {
+    background: darkgrey;
+    color: black;
+}
+
+div.question {
+    background: #6c757d;
+    padding: 2rem;
+}
+
+.possible-choice {
+    border: black dashed 0.125rem;
+    padding: 0 1rem;
+}
+
+.rigth-side {
+   margin-left:250px;
+}

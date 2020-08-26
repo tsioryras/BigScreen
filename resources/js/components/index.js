@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 import Dashboard from "./Dashboard";
+import '../../css/custom.css';
 
 const formRenderElement = document.getElementById('root');
 const adminRenderElement = document.getElementById('admin-page');

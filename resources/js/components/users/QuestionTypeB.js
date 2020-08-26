@@ -8,9 +8,9 @@ const QuestionTypeB = (props) => {
         input = <input id={props.number} name={props.number} type={props.type} className="required form-control"/>;
     }
     return (
-        <div className={'card mb-5 py-2 ' + props.display}>
+        <div className={'card question mb-5 py-2 ' + props.display}>
             <h3>{props.title}</h3>
-            <section>
+            <section className={'mb-3 py-2'}>
                 <label htmlFor={props.number}>{props.label}</label>
                 {input}
             </section>
