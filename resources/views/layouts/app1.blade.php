@@ -29,7 +29,7 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <div id="main-wrapper">
-    <header class="topbar" data-navbarbg="skin5">
+    <header class="fixed-top btn-dark" data-navbarbg="skin5">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header" data-logobg="skin5">
                 {{--                <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">--}}

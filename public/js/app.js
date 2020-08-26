@@ -76625,22 +76625,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _users_SurveyForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users/SurveyForm */ "./resources/js/components/users/SurveyForm.js");
+
 
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
+    className: "container my-5 py-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row justify-content-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8"
+    className: "col-md-8 offset-md-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header"
-  }, "main Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    clssName: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sondage de satisfaction")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, "I'm an example component!")))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_SurveyForm__WEBPACK_IMPORTED_MODULE_1__["default"], null))))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -76665,6 +76667,263 @@ __webpack_require__.r(__webpack_exports__);
 
 
 react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./resources/js/components/users/Question.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/users/Question.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionTypeB */ "./resources/js/components/users/QuestionTypeB.js");
+/* harmony import */ var _QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionTypeAC */ "./resources/js/components/users/QuestionTypeAC.js");
+
+
+
+
+var Question = function Question(props) {
+  if (props.type === 'B') {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      display: props.display,
+      number: props.number,
+      title: props.title,
+      label: props.content.label,
+      type: props.input
+    });
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      display: props.display,
+      number: props.number,
+      options: props.content.choices,
+      title: props.title,
+      label: props.content.label
+    });
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Question);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/QuestionTypeAC.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/users/QuestionTypeAC.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var QuestionTypeAC = function QuestionTypeAC(props) {
+  var listOptions = props.options.map(function (optionValue, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: index,
+      className: "form-group row"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-md-9"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "custom-control custom-radio"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "radio",
+      className: "custom-control-input",
+      name: 'question' + props.number,
+      id: 'question' + props.number + index,
+      value: optionValue,
+      required: true
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "custom-control-label",
+      htmlFor: 'question' + props.number + index
+    }, optionValue))));
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: 'card mb-5 py-2 ' + props.display
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, listOptions));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuestionTypeAC);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/QuestionTypeB.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/users/QuestionTypeB.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var input;
+
+var QuestionTypeB = function QuestionTypeB(props) {
+  if (props.input === 'textarea') {
+    input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      id: props.number,
+      name: props.number,
+      className: "required  form-control"
+    });
+  } else {
+    input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      id: props.number,
+      name: props.number,
+      type: props.type,
+      className: "required form-control"
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: 'card mb-5 py-2 ' + props.display
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: props.number
+  }, props.label), input));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuestionTypeB);
+
+/***/ }),
+
+/***/ "./resources/js/components/users/SurveyForm.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/users/SurveyForm.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question */ "./resources/js/components/users/Question.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var SurveyFrom = function SurveyFrom() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    label: 'votre email',
+    type: 'B'
+  }, {
+    label: 'nombre d\'enfants',
+    choices: [1, 2, 3, 4, 5],
+    type: 'C'
+  }, {
+    label: 'fruits',
+    choices: ['banane', 'pomme de ciel', 'orange'],
+    type: 'A'
+  }]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var totalQuestion = data.length;
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      currentQuestion = _useState4[0],
+      setCurrentQuestion = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
+      _useState6 = _slicedToArray(_useState5, 2),
+      end = _useState6[0],
+      setEnd = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
+      _useState8 = _slicedToArray(_useState7, 2),
+      prev = _useState8[0],
+      setPrev = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      next = _useState10[0],
+      setNext = _useState10[1];
+
+  var onSendData = function onSendData(event) {
+    event.preventDefault();
+    console.log(data);
+  };
+
+  var onNextQuestion = function onNextQuestion() {
+    setCurrentQuestion(currentQuestion + 1);
+
+    if (currentQuestion >= totalQuestion - 2) {
+      setCurrentQuestion(totalQuestion - 1);
+      setNext('d-none');
+      setEnd('');
+    }
+
+    setPrev('');
+  };
+
+  var onPrevQuestion = function onPrevQuestion() {
+    setCurrentQuestion(currentQuestion - 1);
+    console.log(currentQuestion);
+
+    if (currentQuestion <= 1) {
+      setCurrentQuestion(0);
+      setPrev('d-none');
+    }
+
+    setEnd('d-none');
+    setNext('');
+  };
+
+  var listQuestions = data.map(function (question, key) {
+    // const display = key === currentQuestion ? 'card' : 'd-none';
+    var title = 'Question ' + (key + 1) + '/20';
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: key,
+      number: key + 1,
+      content: question,
+      type: question.type // display={display}
+      ,
+      title: title
+    });
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body wizard-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    id: "example-form",
+    action: "#",
+    className: "m-t-40"
+  }, listQuestions, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "offset-md-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-outline-success ",
+    id: "submit",
+    name: "submit",
+    type: "submit"
+  }, "Finaliser"))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SurveyFrom);
 
 /***/ }),
 
