@@ -5,6 +5,14 @@
  */
 
 require('./bootstrap');
+require('../../node_modules/jquery/dist/jquery.min');
+require('../../public/js/dist/js/jquery.ui.touch-punch-improved');
+require('../../public/js/dist/js/jquery-ui.min');
+require('../../public/js/dist/js/popper.js/dist/umd/popper.min');
+require('../../public/js/dist/js/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js');
+require('../../public/js/dist/js/waves.js');
+require('../../public/js/dist/js/sidebarmenu.js');
+require('../../public/js/dist/js/custom.min.js');
 
 /**
  * Next, we will create a fresh React component instance and attach it to
