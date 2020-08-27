@@ -20,4 +20,12 @@ class Type extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function choice()
+    {
+        return $this->hasOne(Choice::class);
+    }
 }
