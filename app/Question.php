@@ -28,4 +28,12 @@ class Question extends Model
     {
         return $this->belongsTo(Choice::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function answer()
+    {
+        return $this->hasOne(Answer::class);
+    }
 }
