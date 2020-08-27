@@ -16,7 +16,7 @@ class CreateChoicesTable extends Migration
         Schema::create('choices', function (Blueprint $table) {
             $table->id();
             $table->string('label')->unique()->nullable(false);
-            $table->json('content')->default(null);
+            $table->json('content')->default(null)->nullable(true);
             $table->timestamps();
         });
     }

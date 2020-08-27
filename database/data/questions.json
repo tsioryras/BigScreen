@@ -12,12 +12,12 @@
   {
     "label": "Votre sexe",
     "type": "A",
-    "choice": "genre"
+    "choice": "sexe"
   },
   {
     "label": "Nombre de personne dans votre foyer (adulte & enfants)",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Votre profession",
@@ -27,22 +27,22 @@
   {
     "label": "Quel marque de casque VR utilisez vous ? ",
     "type": "A",
-    "choice": "marqueCasqueVR"
+    "choice": "marque-casqueVR"
   },
   {
     "label": "Sur quel magasin d’application achetez vous des contenus VR ? ",
     "type": "A",
-    "choice": "storeVR"
+    "choice": "store"
   },
   {
     "label": "Quel casque envisagez vous d’acheter dans un futur proche ?",
     "type": "A",
-    "choice": "typeCasqueVR"
+    "choice": "type-casqueVR"
   },
   {
     "label": "Au sein de votre foyer, combien de personne utilisent votre casque VR pour regarder Bigscreen ? ",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Vous utilisez principalement Bigscreen pour",
@@ -52,27 +52,27 @@
   {
     "label": "Combien donnez vous de point pour la qualité de l’image sur Bigscreen ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Combien donnez vous de point pour le confort d’utilisation de l’interface Bigscreen ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Combien donnez vous de point pour la connection réseau de Bigscreen ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Combien donnez vous de point pour la qualité des graphismes 3D dans Bigscreen ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Combien donnez vous de point pour la qualité audio dans Bigscreen ? ",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Aimeriez vous avoir des notifications plus précises au cours de vos sessions Bigscreen ? ",
@@ -87,12 +87,12 @@
   {
     "label": "Aimeriez vous pouvoir enregistrer des émissions TV pour pouvoir les regarder ultérieurement ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Aimeriez vous jouer à des jeux exclusifs sur votre Bigscreen ?",
     "type": "C",
-    "choice": "unAcinq"
+    "choice": "un-cinq"
   },
   {
     "label": "Quelle nouvelle fonctionnalité de vos rêve devrait exister sur Bigscreen ? ",

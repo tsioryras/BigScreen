@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Choice extends Model
 {
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'content' => 'array'
+    ];
+
     protected $fillable = [
-        'label'
+        'label', 'content'
     ];
 
     /**
