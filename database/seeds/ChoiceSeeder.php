@@ -11,6 +11,8 @@ class ChoiceSeeder extends Seeder
      */
     public function run()
     {
+        $choices = json_decode(file_get_contents(database_path('data\choices.json')));
 
+        dd($choices);
     }
 }
