@@ -4,13 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Choice extends Model
 {
-    /**
-     * @var array
-     */
     protected $fillable = [
-        'value', 'description'
+        'label'
     ];
 
     /**
@@ -22,10 +19,10 @@ class Type extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function choice()
+    public function type()
     {
-        return $this->hasMany(choice::class);
+        return $this->belongsTo(Type::class);
     }
 }

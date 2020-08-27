@@ -21,4 +21,11 @@ class Question extends Model
         return $this->belongsTo(Type::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function choice()
+    {
+        return $this->belongsTo(Choice::class);
+    }
 }

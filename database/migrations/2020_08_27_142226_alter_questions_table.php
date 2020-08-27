@@ -16,6 +16,8 @@ class AlterQuestionsTable extends Migration
         Schema::table('questions', function (Blueprint $table) {
             $table->unsignedInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('SET NULL');
+            $table->unsignedInteger('choice_id')->nullable();
+            $table->foreign('choice_id')->references('id')->on('choices')->onDelete('SET NULL');
         });
     }
 
