@@ -16,7 +16,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->string('email', 50)->unique()->nullable(false);
-            $table->string('url', 255)->unique()->nullable(false);
+            $table->string('url')->unique()->nullable(false);
             $table->json('content')->nullable(false);
             $table->timestamps();
         });
