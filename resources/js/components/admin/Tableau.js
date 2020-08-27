@@ -1,14 +1,6 @@
 import React from 'react';
 
-let rows;
 const Tableau = (props) => {
-    // props.list.forEach(question => {
-    //     // rows+= `<tr>
-    //     //             <th scope="col">#</th>
-    //     //             <th scope="col">Label</th>
-    //     //             <th scope="col">Type</th>
-    //     //         </tr>`;
-    // });
     return (
         <div>
             <div className="row">
@@ -17,16 +9,22 @@ const Tableau = (props) => {
                         <div className="card-body">
                             <h5 className="card-title m-b-0">{props.title}</h5>
                         </div>
-                        <table className="table">
+                        <table className="table table-bordered">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Label</th>
-                                <th scope="col">Type</th>
+                                <th scope="col">{props.column}</th>
                             </tr>
                             </thead>
                             <tbody>
-
+                            {props.list.map(row => (
+                                <tr key={row.id}>
+                                    <th scope="col">{row.id}</th>
+                                    <th scope="col">{row.label}</th>
+                                    <th scope="col">{row.type}</th>
+                                </tr>
+                            ))}
                             </tbody>
                         </table>
                     </div>

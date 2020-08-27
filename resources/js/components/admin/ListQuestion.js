@@ -5,6 +5,7 @@ import Tableau from "./Tableau";
 const ListQuestion = () => {
     const [list, setList] = useState([]);
     const title = "Liste des questions";
+
     useEffect(() => {
         axios.get('/questions').then(function (response) {
             setList(response.data);
@@ -14,7 +15,7 @@ const ListQuestion = () => {
     }, []);
 
     return (
-        <Tableau title={title} list={list}/>
+        <Tableau title={title} list={list} column="Type"/>
     );
 };
 export default ListQuestion;

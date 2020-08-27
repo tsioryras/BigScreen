@@ -15,7 +15,7 @@ const ListAnswer = () => {
     }, []);
 
     return (
-        <Tableau title={title} list={list}/>
+        <Tableau title={title} list={list} column="Réponse"/>
     );
 };
 export default ListAnswer;
