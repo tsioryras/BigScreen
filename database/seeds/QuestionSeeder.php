@@ -11,6 +11,8 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-
+//        $this->call(TypeSeeder::class);
+        $questions = file_get_contents('../data/question.json');
+        dd($questions);
     }
 }
