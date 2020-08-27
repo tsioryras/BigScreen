@@ -11,6 +11,6 @@ class ChoiceSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

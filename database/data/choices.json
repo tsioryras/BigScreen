@@ -1,0 +1,106 @@
+{
+  "unAcinq": [
+    {
+      "value": 1
+    },
+    {
+      "value": 2
+    },
+    {
+      "value": 3
+    },
+    {
+      "value": 4
+    },
+    {
+      "value": 5
+    }
+  ],
+  "genre": [
+    {
+      "value": "Homme"
+    },
+    {
+      "value": "Femme"
+    },
+    {
+      "value": "Préfère ne pas répondre"
+    }
+  ],
+  "ouinon": [
+    {
+      "value": "oui"
+    },
+    {
+      "value": "non"
+    }
+  ],
+  "marqueCasqueVR": [
+    {
+      "value": "Occulus Rift/s"
+    },
+    {
+      "value": "HTC Vive"
+    },
+    {
+      "value": "Windows Mixed Reality"
+    },
+    {
+      "value": "PSVR"
+    }
+  ],
+  "storeVR": [
+    {
+      "value": "SteamVR"
+    },
+    {
+      "value": " Occulus store"
+    },
+    {
+      "value": "Viveport"
+    },
+    {
+      "value": " Playstation VR"
+    },
+    {
+      "value": " Google Play"
+    },
+    {
+      "value": "Windows store"
+    },
+    {
+      "value": "SteamVR"
+    }
+  ],
+  "typeCasqueVR": [
+    {
+      "value": "Occulus Quests"
+    },
+    {
+      "value": "Occulus Go"
+    },
+    {
+      "value": "HTC Vive Pro"
+    },
+    {
+      "value": " Autre"
+    },
+    {
+      "value": " Aucun"
+    }
+  ],
+  "usageBS": [
+    {
+      "value": "Regarder des émissions TV en direct"
+    },
+    {
+      "value": "Regarder des films"
+    },
+    {
+      "value": "Jouer en solo"
+    },
+    {
+      "value": "Jouer en team"
+    }
+  ]
+}

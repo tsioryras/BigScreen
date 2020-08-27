@@ -1,0 +1,14 @@
+[
+  {
+    "value": "A",
+    "description": "Un choix parmis plusieurs proposition"
+  },
+  {
+    "value": "B",
+    "description": "Un champ de saisie de 255 caractères maximum "
+  },
+  {
+    "value": "C",
+    "description": "Un choix numérique (1 à 5)"
+  }
+]

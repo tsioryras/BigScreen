@@ -1,0 +1,103 @@
+[
+  {
+    "label": "Votre adresse mail",
+    "type": "B",
+    "choice": ""
+  },
+  {
+    "label": " Votre âge",
+    "type": "B",
+    "choice": ""
+  },
+  {
+    "label": "Votre sexe",
+    "type": "A",
+    "choice": "genre"
+  },
+  {
+    "label": "Nombre de personne dans votre foyer (adulte & enfants)",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Votre profession",
+    "type": "B",
+    "choice": ""
+  },
+  {
+    "label": "Quel marque de casque VR utilisez vous ? ",
+    "type": "A",
+    "choice": "marqueCasqueVR"
+  },
+  {
+    "label": "Sur quel magasin d’application achetez vous des contenus VR ? ",
+    "type": "A",
+    "choice": "storeVR"
+  },
+  {
+    "label": "Quel casque envisagez vous d’acheter dans un futur proche ?",
+    "type": "A",
+    "choice": "typeCasqueVR"
+  },
+  {
+    "label": "Au sein de votre foyer, combien de personne utilisent votre casque VR pour regarder Bigscreen ? ",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Vous utilisez principalement Bigscreen pour",
+    "type": "A",
+    "choice": "usageBS"
+  },
+  {
+    "label": "Combien donnez vous de point pour la qualité de l’image sur Bigscreen ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Combien donnez vous de point pour le confort d’utilisation de l’interface Bigscreen ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Combien donnez vous de point pour la connection réseau de Bigscreen ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Combien donnez vous de point pour la qualité des graphismes 3D dans Bigscreen ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Combien donnez vous de point pour la qualité audio dans Bigscreen ? ",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Aimeriez vous avoir des notifications plus précises au cours de vos sessions Bigscreen ? ",
+    "type": "A",
+    "choice": "ouinon"
+  },
+  {
+    "label": "Aimeriez vous pouvoir inviter un ami à rejoindre votre session via son smartphone ? ",
+    "type": "A",
+    "choice": "ouinon"
+  },
+  {
+    "label": "Aimeriez vous pouvoir enregistrer des émissions TV pour pouvoir les regarder ultérieurement ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Aimeriez vous jouer à des jeux exclusifs sur votre Bigscreen ?",
+    "type": "C",
+    "choice": "unAcinq"
+  },
+  {
+    "label": "Quelle nouvelle fonctionnalité de vos rêve devrait exister sur Bigscreen ? ",
+    "type": "B",
+    "choice": "",
+    "input": "textarea"
+  }
+]
