@@ -21,6 +21,4 @@ Route::get('/questions', 'FormController@getQuestions')->name('question_list');
 //Admin routes
 Auth::routes();
 Route::get('/administration', 'HomeController@index')->name('administration');
-Route::get('/administration/questions', 'HomeController@question')->name('questions');
 Route::get('/administration/answers', 'HomeController@answer')->name('answers');
-Route::get('/administration/users', 'HomeController@users')->name('users');

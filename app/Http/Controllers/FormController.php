@@ -24,6 +24,7 @@ class FormController extends Controller
         $questionsDetails = [];
         foreach ($questions as $question) {
             $questionsDetails[] = [
+                'id' => $question->id,
                 'label' => $question->label,
                 'choice' => $question->choice['content'],
                 'type' => $question->type['value']

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
 use App\User;
 use Illuminate\Http\JsonResponse;
 
@@ -35,20 +36,4 @@ class HomeController extends Controller
         return new JsonResponse(User::all());
     }
 
-    /**
-     * @return JsonResponse
-     */
-    public function question()
-    {
-        return new JsonResponse(User::all());
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    public function users()
-    {
-        return new JsonResponse(User::all());
-
-    }
 }

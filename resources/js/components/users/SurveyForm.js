@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Question from './Question';
 import axios from "axios";
 
 const SurveyFrom = () => {
 
     const [data, setData] = useState([]);
-
-    const dataGet = axios.get('/questions').then(function (response) {
-        setData(response.data);
-    }).catch(function (error) {
-        console.log(error);
-    });
+    useEffect(() => {
+        axios.get('/questions').then(function (response) {
+            setData(response.data);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }, []);
 
     const listQuestions = data.map(function (question, key) {
             const title = 'Question ' + (key + 1) + '/20';
