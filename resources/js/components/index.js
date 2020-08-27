@@ -7,6 +7,7 @@ import '../../css/custom.css';
 const formRenderElement = document.getElementById('root');
 const adminRenderElement = document.getElementById('admin-page');
 
+
 if (formRenderElement) {
     ReactDOM.render(<App/>, formRenderElement);
 }

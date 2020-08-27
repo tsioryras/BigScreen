@@ -1,54 +1,16 @@
 import React, {useState} from 'react';
 import Question from './Question';
+import axios from "axios";
 
 const SurveyFrom = () => {
-    const [data, setData] = useState([
-        {
-            label: 'votre email',
-            type: 'B'
-        },
-        {
-            label: 'nombre d\'enfants',
-            choices: [1, 2, 3, 4, 5],
-            type: 'C'
-        }, {
-            label: 'fruits',
-            choices: ['banane', 'pomme de ciel', 'orange'],
-            type: 'A'
-        }
-    ]);
 
-    const totalQuestion = data.length;
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [end, setEnd] = useState('d-none');
-    const [prev, setPrev] = useState('d-none');
-    const [next, setNext] = useState('');
+    const [data, setData] = useState([]);
 
-    const onSendData = (event) => {
-        event.preventDefault();
-        console.log(data);
-    };
-
-    const onNextQuestion = () => {
-        setCurrentQuestion(currentQuestion + 1);
-        if (currentQuestion >= totalQuestion - 2) {
-            setCurrentQuestion(totalQuestion - 1);
-            setNext('d-none');
-            setEnd('');
-        }
-        setPrev('');
-    }
-
-    const onPrevQuestion = () => {
-        setCurrentQuestion(currentQuestion - 1);
-        console.log(currentQuestion);
-        if (currentQuestion <= 1) {
-            setCurrentQuestion(0);
-            setPrev('d-none');
-        }
-        setEnd('d-none');
-        setNext('');
-    };
+    const dataGet = axios.get('/questions').then(function (response) {
+        setData(response.data);
+    }).catch(function (error) {
+        console.log(error);
+    });
 
     const listQuestions = data.map(function (question, key) {
             const title = 'Question ' + (key + 1) + '/20';
@@ -58,6 +20,7 @@ const SurveyFrom = () => {
                              title={title}/>
         }
     );
+
     return (
         <div className="card">
             <div className="card-body wizard-content">

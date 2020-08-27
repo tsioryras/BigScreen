@@ -2,12 +2,12 @@
   {
     "label": "Votre adresse mail",
     "type": "B",
-    "choice": ""
+    "choice": "input"
   },
   {
     "label": " Votre âge",
     "type": "B",
-    "choice": ""
+    "choice": "input"
   },
   {
     "label": "Votre sexe",
@@ -97,7 +97,6 @@
   {
     "label": "Quelle nouvelle fonctionnalité de vos rêve devrait exister sur Bigscreen ? ",
     "type": "B",
-    "choice": "",
-    "input": "textarea"
+    "choice": "textarea"
   }
 ]

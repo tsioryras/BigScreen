@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');;
+//Guests routes
+Route::get('/', 'FormController@index')->name('index');
+Route::get('/questions', 'FormController@getQuestions')->name('question_list');
 
+//Admin routes
 Auth::routes();
-
 Route::get('/administration', 'HomeController@index')->name('administration');
 Route::get('/administration/questions', 'HomeController@question')->name('questions');
 Route::get('/administration/answers', 'HomeController@answer')->name('answers');

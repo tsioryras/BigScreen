@@ -1,5 +1,15 @@
 [
   {
+    "label": "text",
+    "type": "B",
+    "content": "text"
+  },
+  {
+    "label": "textarea",
+    "type": "B",
+    "content": "textarea"
+  },
+  {
     "label": "un-cinq",
     "type": "C",
     "content": [

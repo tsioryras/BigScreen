@@ -2,7 +2,7 @@ import React from 'react';
 
 let input;
 const QuestionTypeB = (props) => {
-    if (props.input === 'textarea') {
+    if (props.type === 'textarea') {
         input = <textarea id={props.number} name={props.number} className="required  form-control"></textarea>;
     } else {
         input = <input id={props.number} name={props.number} type={props.type} className="required form-control"/>;

@@ -77615,17 +77615,15 @@ __webpack_require__.r(__webpack_exports__);
 var Question = function Question(props) {
   if (props.type === 'B') {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeB__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      display: props.display,
       number: props.number,
       title: props.title,
       label: props.content.label,
-      type: props.input
+      type: props.content.choice
     });
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      display: props.display,
       number: props.number,
-      options: props.content.choices,
+      options: props.content.choice,
       title: props.title,
       label: props.content.label
     });
@@ -77696,7 +77694,7 @@ __webpack_require__.r(__webpack_exports__);
 var input;
 
 var QuestionTypeB = function QuestionTypeB(props) {
-  if (props.input === 'textarea') {
+  if (props.type === 'textarea') {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
       id: props.number,
       name: props.number,
@@ -77736,6 +77734,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question */ "./resources/js/components/users/Question.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -77751,75 +77751,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SurveyFrom = function SurveyFrom() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
-    label: 'votre email',
-    type: 'B'
-  }, {
-    label: 'nombre d\'enfants',
-    choices: [1, 2, 3, 4, 5],
-    type: 'C'
-  }, {
-    label: 'fruits',
-    choices: ['banane', 'pomme de ciel', 'orange'],
-    type: 'A'
-  }]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
-  var totalQuestion = data.length;
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      currentQuestion = _useState4[0],
-      setCurrentQuestion = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
-      _useState6 = _slicedToArray(_useState5, 2),
-      end = _useState6[0],
-      setEnd = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
-      _useState8 = _slicedToArray(_useState7, 2),
-      prev = _useState8[0],
-      setPrev = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState10 = _slicedToArray(_useState9, 2),
-      next = _useState10[0],
-      setNext = _useState10[1];
-
-  var onSendData = function onSendData(event) {
-    event.preventDefault();
-    console.log(data);
-  };
-
-  var onNextQuestion = function onNextQuestion() {
-    setCurrentQuestion(currentQuestion + 1);
-
-    if (currentQuestion >= totalQuestion - 2) {
-      setCurrentQuestion(totalQuestion - 1);
-      setNext('d-none');
-      setEnd('');
-    }
-
-    setPrev('');
-  };
-
-  var onPrevQuestion = function onPrevQuestion() {
-    setCurrentQuestion(currentQuestion - 1);
-    console.log(currentQuestion);
-
-    if (currentQuestion <= 1) {
-      setCurrentQuestion(0);
-      setPrev('d-none');
-    }
-
-    setEnd('d-none');
-    setNext('');
-  };
-
+  var dataGet = axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/questions').then(function (response) {
+    setData(response.data);
+  })["catch"](function (error) {
+    console.log(error);
+  });
   var listQuestions = data.map(function (question, key) {
     var title = 'Question ' + (key + 1) + '/20';
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
