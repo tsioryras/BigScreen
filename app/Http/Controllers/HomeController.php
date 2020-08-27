@@ -31,9 +31,9 @@ class HomeController extends Controller
     /**
      * @return JsonResponse
      */
-    public function answer()
+    public function answers()
     {
-        return new JsonResponse(User::all());
+        return new JsonResponse(Ans::all());
     }
 
 }

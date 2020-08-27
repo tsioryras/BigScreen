@@ -7,7 +7,7 @@ const ListAnswer = () => {
     const title = "Liste des réponses";
 
     useEffect(() => {
-        axios.get('/questions').then(function (response) {
+        axios.get('/answers').then(function (response) {
             setList(response.data);
         }).catch(function (error) {
             console.log(error);

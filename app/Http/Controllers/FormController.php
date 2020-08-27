@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Question;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -18,7 +19,7 @@ class FormController extends Controller
     /**
      * @return JsonResponse
      */
-    public function getQuestions()
+    public function questions()
     {
         $questions = Question::all();
         $questionsDetails = [];
@@ -31,5 +32,13 @@ class FormController extends Controller
             ];
         }
         return new JsonResponse($questionsDetails);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function answers()
+    {
+        return new JsonResponse(Answer::all());
     }
 }

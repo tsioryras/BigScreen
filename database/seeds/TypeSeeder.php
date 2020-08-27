@@ -12,26 +12,13 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = [
-            [
-                'value' => 'A',
-                'description' => 'Un choix parmis plusieurs proposition',
-            ],
-            [
-                'value' => 'B',
-                'description' => 'Un champ de saisie de 255 caractères maximum ',
-            ],
-            [
-                'value' => 'C',
-                'description' => 'Un choix numérique (1 à 5)',
-            ]
-        ];
+        $types = $questions = json_decode(file_get_contents(database_path('data\types.json')));
 
         foreach ($types as $type) {
             factory(Type::class)->create(
                 [
-                    'value' => $type['value'],
-                    'description' => $type['description']
+                    'value' => $type->value,
+                    'description' => $type->description
                 ]
             );
         }
