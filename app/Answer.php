@@ -20,4 +20,12 @@ class Answer extends Model
     {
         return $this->belongsTo(Question::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function link()
+    {
+        return $this->belongsTo(Link::class);
+    }
 }

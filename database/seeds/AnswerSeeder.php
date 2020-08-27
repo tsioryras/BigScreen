@@ -1,8 +1,10 @@
 <?php
 
 use App\Answer;
+use App\Link;
 use App\Question;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AnswerSeeder extends Seeder
 {
@@ -18,6 +20,8 @@ class AnswerSeeder extends Seeder
         $questions = Question::all();
 
         for ($i = 0; $i < 10; $i++) {
+            $link = factory(Link::class)->create();
+            $linkValue = '';
             foreach ($questions as $question) {
 
                 $answer = factory(Answer::class)->create();
@@ -26,6 +30,7 @@ class AnswerSeeder extends Seeder
                         $specific = false;
                         if ($questions[0] === $question) {
                             $answer->value = $faker->freeEmail;
+                            $link->value = Hash::make($answer->value . now());
                             $specific = true;
                         }
 
@@ -42,15 +47,17 @@ class AnswerSeeder extends Seeder
                         if (!$specific) {
                             $answer->value = $faker->sentence(1, 10);
                         }
+                        $linkValue .= $answer->value;
                         break;
                     default:
                         $answer->value = $faker->randomElement($question->choice->content);
                         break;
                 }
+
+                $answer->link()->associate($link);
                 $answer->question()->associate($question);
                 $answer->save();
             }
         }
-
     }
 }
