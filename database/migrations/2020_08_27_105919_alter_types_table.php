@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypesTable extends Migration
+class AlterTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->char('value', 1)->unique()->nullable(false);
-            $table->string('description', 100)->nullable(false);
-            $table->timestamps();
+        Schema::table('types', function (Blueprint $table) {
+            $table->unsignedInteger('choice_id')->nullable();
+            $table->foreign('choice_id')->references('id')->on('choices')->onDelete('SET NULL');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::table('types', function (Blueprint $table) {
+            //
+        });
     }
 }
