@@ -45,7 +45,7 @@
     "choice": "un-cinq"
   },
   {
-    "label": "Vous utilisez principalement Bigscreen pour",
+    "label": "Vous utilisez principalement Bigscreen pour :",
     "type": "A",
     "choice": "usageBS"
   },
@@ -87,12 +87,12 @@
   {
     "label": "Aimeriez vous pouvoir enregistrer des émissions TV pour pouvoir les regarder ultérieurement ?",
     "type": "C",
-    "choice": "un-cinq"
+    "choice": "ouinon"
   },
   {
     "label": "Aimeriez vous jouer à des jeux exclusifs sur votre Bigscreen ?",
     "type": "C",
-    "choice": "un-cinq"
+    "choice": "ouinon"
   },
   {
     "label": "Quelle nouvelle fonctionnalité de vos rêve devrait exister sur Bigscreen ? ",

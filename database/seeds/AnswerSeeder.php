@@ -19,7 +19,7 @@ class AnswerSeeder extends Seeder
         $faker = Faker\Factory::create('fr_FR');
         $questions = Question::all();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $link = factory(Link::class)->create();
             $linkValue = '';
             foreach ($questions as $question) {

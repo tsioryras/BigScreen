@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Guests routes
 Route::get('/', 'FormController@index')->name('index');
 Route::get('/questions', 'FormController@questions')->name('question_list');
-Route::get('/{token}', 'FormController@answers')->where(['token' => '[aA-zZ]+'])->name('answer');
+//Route::get('/{token}', 'FormController@answers')->where(['token' => '[aA-zZ]+'])->name('answer');
 
 //Admin routes
 Auth::routes();

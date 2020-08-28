@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Tableau = (props) => {
+    console.log(props);
     return (
         <div>
             <div className="row">
@@ -20,9 +21,9 @@ const Tableau = (props) => {
                             <tbody>
                             {props.list.map(row => (
                                 <tr key={row.id}>
-                                    <th scope="col">{row.id}</th>
+                                    <th scope="col">{(row.id % 20 === 0) ? 20 : row.id%20}</th>
                                     <th scope="col">{row.label}</th>
-                                    <th scope="col">{row.type}</th>
+                                    <th scope="col">{row.type ?? row.value}</th>
                                 </tr>
                             ))}
                             </tbody>

@@ -77386,18 +77386,37 @@ var ListAnswer = function ListAnswer() {
       setList = _useState2[1];
 
   var title = "Liste des réponses";
+  var results = [];
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/questions').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/administration/answers').then(function (response) {
       setList(response.data);
     })["catch"](function (error) {
       console.log(error);
     });
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    title: title,
-    list: list,
-    column: "R\xE9ponse"
-  });
+
+  for (var i in list) {
+    results.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: i,
+      className: "card"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      title: parseInt(i) + 1 + '.',
+      list: list[i],
+      column: "R\xE9ponse"
+    })));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title m-b-0"
+  }, title)), results))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListAnswer);
@@ -77615,6 +77634,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Tableau = function Tableau(props) {
+  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77634,15 +77654,17 @@ var Tableau = function Tableau(props) {
   }, "Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, props.column))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, props.list.map(function (row) {
+    var _row$type;
+
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: row.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col"
-    }, row.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    }, row.id % 20 === 0 ? 20 : row.id % 20), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col"
     }, row.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col"
-    }, row.type));
+    }, (_row$type = row.type) !== null && _row$type !== void 0 ? _row$type : row.value));
   })))))));
 };
 

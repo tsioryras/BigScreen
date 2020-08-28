@@ -34,11 +34,11 @@ class FormController extends Controller
         return new JsonResponse($questionsDetails);
     }
 
-    /**
-     * @return JsonResponse
-     */
-    public function answers()
-    {
-        return new JsonResponse(Answer::all());
-    }
+//    /**
+//     * @return JsonResponse
+//     */
+//    public function answers()
+//    {
+//        return new JsonResponse(Answer::all());
+//    }
 }
