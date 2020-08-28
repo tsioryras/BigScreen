@@ -1,20 +1,25 @@
 import React from 'react';
 import ListQuestion from "./ListQuestion";
 import ListAnswer from "./ListAnswer";
+import Charts from "./Charts";
 
 let content;
 const PageContent = (props) => {
     if (props.page === 'question') {
-        content = <ListQuestion/>
+        content = <ListQuestion list={props.questions}/>
     }
 
     if (props.page === 'answer') {
-        content = <ListAnswer/>
+        content = <ListAnswer list={props.answers}/>
+    }
+
+    if (props.page === 'home') {
+        content = <Charts/>
     }
     return (
         <div className="rigth-side row">
             <div className="container">
-                <div>{content}</div>
+                {content}
             </div>
         </div>
     );

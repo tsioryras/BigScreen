@@ -1,18 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React from 'react';
 import Tableau from "./Tableau";
 
-const ListAnswer = () => {
-    const [list, setList] = useState([]);
+const ListAnswer = (props) => {
     const title = "Liste des réponses";
+    const list = props.list;
     let results = [];
-    useEffect(() => {
-        axios.get('/administration/answers').then(function (response) {
-            setList(response.data);
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }, []);
 
     for (let i in list) {
         results.push(<div key={i} className="card">
@@ -21,17 +13,11 @@ const ListAnswer = () => {
     }
 
     return (
-        <div>
-            <div className="row">
-                <div className="col-12">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title m-b-0">{title}</h5>
-                        </div>
-                        {results}
-                    </div>
-                </div>
+        <div className="content">
+            <div className="card-header">
+                <h5 className="card-title m-b-0">{title}</h5>
             </div>
+            {results}
         </div>
     );
 };

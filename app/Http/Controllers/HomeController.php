@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Question;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -67,6 +68,38 @@ class HomeController extends Controller
         }
 
         return new JsonResponse($answersGroupsDetails);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function statsData()
+    {
+        $answer6 = Answer::retrieve(6);
+        $answer7 = Answer::retrieve(7);
+        $answer10 = Answer::retrieve(10);
+
+        $answer11 = Answer::retrieve(11);
+        $answer12 = Answer::retrieve(12);
+        $answer13 = Answer::retrieve(13);
+        $answer14 = Answer::retrieve(14);
+        $answer15 = Answer::retrieve(15);
+
+        $equipmentStats = [
+            'question6' => $answer6,
+            'question7' => $answer7, '
+            question10' => $answer10
+        ];
+
+        $qualityStats = [
+            'question11' => $answer11,
+            'question12' => $answer12,
+            'question13' => $answer13,
+            'question14' => $answer14,
+            'question15' => $answer15
+        ];
+
+        return new JsonResponse(['equipment' => $equipmentStats, 'quality' => $qualityStats]);
     }
 
 }

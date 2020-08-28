@@ -6331,7 +6331,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "body {\r\n    background: #171a1d;\r\n    color: #e9ecef;\r\n}\r\n\r\n.left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\n.rigth-side {\r\n    margin-left: 250px;\r\n}", ""]);
+exports.push([module.i, "\r\n.left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\n.rigth-side {\r\n    margin-left: 250px;\r\n}", ""]);
 
 // exports
 
@@ -77308,6 +77308,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _admin_PageContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin/PageContent */ "./resources/js/components/admin/PageContent.js");
 /* harmony import */ var _admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin/MenuAdmin */ "./resources/js/components/admin/MenuAdmin.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -77324,16 +77326,58 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Dashboard = function Dashboard() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('home'),
       _useState2 = _slicedToArray(_useState, 2),
       currentAdminPage = _useState2[0],
       setCurrentAdminPage = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      chartsData = _useState4[0],
+      setChartsData = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      listquestions = _useState6[0],
+      setListquestions = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      listAswers = _useState8[0],
+      setListAswers = _useState8[1]; //récupération de la liste des questions
+
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/questions').then(function (response) {
+      setListquestions(response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }, []); //récupération de la liste des réponses
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/administration/answers').then(function (response) {
+      setListAswers(response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }, []); //récupération des stats
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/administration/stats').then(function (response) {
+      setChartsData(response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }, []);
+
   var onNavigateHandler = function onNavigateHandler(page) {
     setCurrentAdminPage(page);
   };
 
+  console.log(chartsData);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "main-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -77341,11 +77385,35 @@ var Dashboard = function Dashboard() {
     url: "/",
     page: currentAdminPage
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_PageContent__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    page: currentAdminPage
+    page: currentAdminPage,
+    questions: listquestions,
+    answers: listAswers,
+    charts: chartsData
   }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Charts.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/admin/Charts.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Charts = function Charts() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "12365564");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Charts);
 
 /***/ }),
 
@@ -77360,63 +77428,33 @@ var Dashboard = function Dashboard() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Tableau__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tableau */ "./resources/js/components/admin/Tableau.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var _Tableau__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tableau */ "./resources/js/components/admin/Tableau.js");
 
 
 
-
-
-var ListAnswer = function ListAnswer() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      list = _useState2[0],
-      setList = _useState2[1];
-
+var ListAnswer = function ListAnswer(props) {
   var title = "Liste des réponses";
+  var list = props.list;
   var results = [];
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/administration/answers').then(function (response) {
-      setList(response.data);
-    })["catch"](function (error) {
-      console.log(error);
-    });
-  }, []);
 
   for (var i in list) {
     results.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: i,
       className: "card"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_1__["default"], {
       title: parseInt(i) + 1 + '.',
       list: list[i],
       column: "R\xE9ponse"
     })));
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
+    className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title m-b-0"
-  }, title)), results))));
+  }, title)), results);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListAnswer);
@@ -77434,42 +77472,15 @@ var ListAnswer = function ListAnswer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Tableau__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tableau */ "./resources/js/components/admin/Tableau.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var _Tableau__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tableau */ "./resources/js/components/admin/Tableau.js");
 
 
 
-
-
-var ListQuestion = function ListQuestion() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      list = _useState2[0],
-      setList = _useState2[1];
-
+var ListQuestion = function ListQuestion(props) {
   var title = "Liste des questions";
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/questions').then(function (response) {
-      setList(response.data);
-    })["catch"](function (error) {
-      console.log(error);
-    });
-  }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: title,
-    list: list,
+    list: props.list,
     column: "Type"
   });
 };
@@ -77595,6 +77606,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ListQuestion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListQuestion */ "./resources/js/components/admin/ListQuestion.js");
 /* harmony import */ var _ListAnswer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListAnswer */ "./resources/js/components/admin/ListAnswer.js");
+/* harmony import */ var _Charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Charts */ "./resources/js/components/admin/Charts.js");
+
 
 
 
@@ -77602,18 +77615,26 @@ var content;
 
 var PageContent = function PageContent(props) {
   if (props.page === 'question') {
-    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListQuestion__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListQuestion__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      list: props.questions
+    });
   }
 
   if (props.page === 'answer') {
-    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListAnswer__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListAnswer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      list: props.answers
+    });
+  }
+
+  if (props.page === 'home') {
+    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Charts__WEBPACK_IMPORTED_MODULE_3__["default"], null);
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rigth-side row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content)));
+  }, content));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageContent);
@@ -77634,18 +77655,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Tableau = function Tableau(props) {
-  console.log(props);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tab py-3 px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
+    className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title m-b-0"
-  }, props.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+  }, props.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-bordered"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -77665,7 +77683,7 @@ var Tableau = function Tableau(props) {
     }, row.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col"
     }, (_row$type = row.type) !== null && _row$type !== void 0 ? _row$type : row.value));
-  })))))));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Tableau);

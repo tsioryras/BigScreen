@@ -1,7 +1,3 @@
-body {
-    background: #171a1d;
-    color: #e9ecef;
-}
 
 .left-sidebar {
     position: fixed !important;
@@ -16,7 +12,7 @@ span.logo img {
     margin: auto;
 }
 
-#form-survey, .wizard-content {
+#form-survey, .wizard-content, .tab {
     background: darkgrey;
     color: black;
 }

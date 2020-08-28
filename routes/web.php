@@ -24,3 +24,4 @@ Route::post('/submit', 'FormController@sendAnswer')->name('submit_form');
 Auth::routes();
 Route::get('/administration', 'HomeController@index')->name('administration');
 Route::get('/administration/answers', 'HomeController@answers')->name('answers');
+Route::get('/administration/stats', 'HomeController@statsData')->name('stats');
