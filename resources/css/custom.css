@@ -1,3 +1,8 @@
+body {
+    background: #171a1d;
+    color: #e9ecef;
+}
+
 .left-sidebar {
     position: fixed !important;
 }
@@ -27,5 +32,5 @@ div.question {
 }
 
 .rigth-side {
-   margin-left:250px;
+    margin-left: 250px;
 }

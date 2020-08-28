@@ -6,11 +6,13 @@ const QuestionTypeAC = (props) => {
         return <div key={index} className="form-group row">
             <div className="col-md-9">
                 <div className="custom-control custom-radio">
-                    <input type="radio" className="custom-control-input" name={props.number}
-                           id={'question' + props.number + index}
+                    <input type="radio" className="custom-control-input" name={'field' + props.number}
+                           id={'question' + props.number + '_' + index}
                            value={optionValue}
-                           required/>
-                    <label className="custom-control-label" htmlFor={'question' + props.number + index}>
+                           required
+                           onChange={props.onRespond}
+                           onLoad={props.onRespond}/>
+                    <label className="custom-control-label" htmlFor={'question' + props.number + '_' + index}>
                         {optionValue}</label>
                 </div>
             </div>

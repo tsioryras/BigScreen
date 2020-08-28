@@ -6,6 +6,7 @@ use App\Question;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
+
 class HomeController extends Controller
 {
     /**

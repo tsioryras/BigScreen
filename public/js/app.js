@@ -6331,7 +6331,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\n.rigth-side {\r\n   margin-left:250px;\r\n}", ""]);
+exports.push([module.i, "body {\r\n    background: #171a1d;\r\n    color: #e9ecef;\r\n}\r\n\r\n.left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\n.rigth-side {\r\n    margin-left: 250px;\r\n}", ""]);
 
 // exports
 
@@ -77281,14 +77281,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _users_PageContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users/PageContent */ "./resources/js/components/users/PageContent.js");
+/* harmony import */ var _users_SurveyForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users/SurveyForm */ "./resources/js/components/users/SurveyForm.js");
 
 
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "main-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_PageContent__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_SurveyForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -77707,48 +77707,6 @@ if (adminRenderElement) {
 
 /***/ }),
 
-/***/ "./resources/js/components/users/PageContent.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/users/PageContent.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SurveyForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SurveyForm */ "./resources/js/components/users/SurveyForm.js");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-var PageContent = function PageContent() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container py-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row justify-content-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8 offset-md-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card",
-    id: "form-survey"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-12 logo"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default.a,
-    alt: "BIG SCREEN"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Merci de r\xE9pondre \xE0 toutes les questions et de valider le formulaire en bas de page"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SurveyForm__WEBPACK_IMPORTED_MODULE_1__["default"], null)))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (PageContent);
-
-/***/ }),
-
 /***/ "./resources/js/components/users/Question.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/users/Question.js ***!
@@ -77772,14 +77730,16 @@ var Question = function Question(props) {
       number: props.number,
       title: props.title,
       label: props.content.label,
-      type: props.content.choice
+      type: props.content.choice,
+      onRespond: props.onRespond
     });
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__["default"], {
       number: props.number,
       options: props.content.choice,
       title: props.title,
-      label: props.content.label
+      label: props.content.label,
+      onRespond: props.onRespond
     });
   }
 };
@@ -77813,13 +77773,15 @@ var QuestionTypeAC = function QuestionTypeAC(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "radio",
       className: "custom-control-input",
-      name: props.number,
-      id: 'question' + props.number + index,
+      name: 'field' + props.number,
+      id: 'question' + props.number + '_' + index,
       value: optionValue,
-      required: true
+      required: true,
+      onChange: props.onRespond,
+      onLoad: props.onRespond
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "custom-control-label",
-      htmlFor: 'question' + props.number + index
+      htmlFor: 'question' + props.number + '_' + index
     }, optionValue))));
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77851,15 +77813,20 @@ var QuestionTypeB = function QuestionTypeB(props) {
   if (props.type === 'textarea') {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
       id: props.number,
-      name: props.number,
-      className: "required  form-control"
+      name: 'field' + props.number,
+      className: "required  form-control",
+      placeholder: "Saississez votre r\xE9ponse",
+      onChange: props.onRespond,
+      onLoad: props.onRespond
     });
   } else {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: props.number,
-      name: props.number,
+      name: 'field' + props.number,
       type: props.type,
-      className: "required form-control"
+      className: "required form-control",
+      onChange: props.onRespond,
+      onLoad: props.onRespond
     });
   }
 
@@ -77890,6 +77857,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question */ "./resources/js/components/users/Question.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
+/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__);
+var _this = undefined;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -77906,11 +77883,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SurveyFrom = function SurveyFrom() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      formData = _useState4[0],
+      setFormData = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      message = _useState6[0],
+      setMessage = _useState6[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/questions').then(function (response) {
@@ -77919,6 +77907,26 @@ var SurveyFrom = function SurveyFrom() {
       console.log(error);
     });
   }, []);
+
+  var handleField = function handleField(event) {
+    var newData = _objectSpread({}, formData);
+
+    newData[event.target.name] = event.target.value;
+    console.log(formData);
+    setFormData(newData);
+  };
+
+  var onSendData = function onSendData(event) {
+    console.log(formData);
+    event.preventDefault();
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit', formData).then(function (response) {
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error);
+      setMessage('Toutes les questions sont obligatoires !');
+    });
+  };
+
   var listQuestions = data.map(function (question, key) {
     var title = 'Question ' + (key + 1) + '/20';
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -77926,16 +77934,46 @@ var SurveyFrom = function SurveyFrom() {
       number: key + 1,
       content: question,
       type: question.type,
-      title: title
+      title: title,
+      onRespond: handleField
     });
   });
+
+  var hasErrorFor = function hasErrorFor(field) {
+    return !!_this.state.errors[field];
+  };
+
+  var renderErrorFor = function renderErrorFor(field) {
+    if (hasErrorFor(field)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "invalid-feedback"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, _this.state.errors[field][0]));
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container py-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8 offset-md-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card",
+    id: "form-survey"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-12 logo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+    alt: "BIG SCREEN"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Merci de r\xE9pondre \xE0 toutes les questions et de valider le formulaire en bas de page"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body wizard-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    action: "#",
-    className: "m-t-40"
+    className: "m-t-40",
+    onSubmit: onSendData
   }, listQuestions, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77945,7 +77983,7 @@ var SurveyFrom = function SurveyFrom() {
     id: "submit",
     name: "submit",
     type: "submit"
-  }, "Finaliser"))))));
+  }, "Finaliser"))))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SurveyFrom);

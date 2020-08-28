@@ -3,9 +3,14 @@ import React from 'react';
 let input;
 const QuestionTypeB = (props) => {
     if (props.type === 'textarea') {
-        input = <textarea id={props.number} name={props.number} className="required  form-control"></textarea>;
+        input = <textarea id={props.number} name={'field'+props.number} className="required  form-control"
+                          placeholder="Saississez votre réponse"
+                          onChange={props.onRespond}
+                          onLoad={props.onRespond}></textarea>;
     } else {
-        input = <input id={props.number} name={props.number} type={props.type} className="required form-control"/>;
+        input =
+            <input id={props.number} name={'field'+props.number} type={props.type} className="required form-control"
+                   onChange={props.onRespond} onLoad={props.onRespond}/>;
     }
     return (
         <div className={'card question mb-5 py-2 ' + props.display}>
