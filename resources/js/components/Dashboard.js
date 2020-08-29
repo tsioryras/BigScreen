@@ -40,15 +40,13 @@ const Dashboard = () => {
         setCurrentAdminPage(page);
     };
 
-    console.log(chartsData);
-
     return (
         <div id="main-wrapper">
             <MenuAdmin onChangePage={onNavigateHandler} url="/" page={currentAdminPage}/>
             <PageContent page={currentAdminPage}
                          questions={listquestions}
                          answers={listAswers}
-                         charts={chartsData}/>
+                         graphics={chartsData}/>
         </div>
     );
 };

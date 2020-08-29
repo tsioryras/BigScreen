@@ -14,7 +14,7 @@ const PageContent = (props) => {
     }
 
     if (props.page === 'home') {
-        content = <Charts/>
+        content = <Charts charts={props.graphics}/>
     }
     return (
         <div className="rigth-side row">

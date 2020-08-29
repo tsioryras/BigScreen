@@ -1,8 +1,9 @@
 import React from 'react';
 
-const PieChart = () => {
+const PieChart = (props) => {
+
     return (
-        <div></div>
+        <div className="col-md-6">pie</div>
     );
 
 };

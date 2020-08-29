@@ -71,7 +71,7 @@ class HomeController extends Controller
     }
 
     /**
-     * @return JsonResponse
+     * @return array
      */
     public function statsData()
     {
@@ -85,21 +85,51 @@ class HomeController extends Controller
         $answer14 = Answer::retrieve(14);
         $answer15 = Answer::retrieve(15);
 
+
         $equipmentStats = [
-            'question6' => $answer6,
-            'question7' => $answer7, '
-            question10' => $answer10
+            'marque VR utilisée' => $this->equipmentStats($answer6),
+            'magasin d\'achat VR' => $this->equipmentStats($answer7),
+            'usages principale de Bigscreen' => $this->equipmentStats($answer10)
         ];
 
         $qualityStats = [
-            'question11' => $answer11,
-            'question12' => $answer12,
-            'question13' => $answer13,
-            'question14' => $answer14,
-            'question15' => $answer15
+            "Qualité de l'image " => $this->qualityStats($answer11),
+            "Confort d'utilisation de l'interface " => $this->qualityStats($answer12),
+            "Connection au réseau " => $this->qualityStats($answer13),
+            "Qualité graphisme 3D" => $this->qualityStats($answer14),
+            "Qualité audio" => $this->qualityStats($answer15)
         ];
 
-        return new JsonResponse(['equipment' => $equipmentStats, 'quality' => $qualityStats]);
+        return ['equipment' => $equipmentStats, 'quality' => $qualityStats];
+    }
+
+    /**
+     * @param $datas
+     * @return array
+     */
+    public function equipmentStats($datas)
+    {
+        $result = [];
+        foreach ($datas as $index => $value) {
+            $result[$index] = sizeof($value);
+        }
+        return $result;
+    }
+
+    /**
+     * @param $datas
+     * @return float|int
+     */
+    public function qualityStats($datas)
+    {
+        $number = 0;
+        $total = 0;
+        foreach ($datas as $value) {
+            $note = (int)$value[0]->value;
+            $total += sizeof($value) * $note;
+            $number += sizeof($value);
+        }
+        return $total / $number;
     }
 
 }

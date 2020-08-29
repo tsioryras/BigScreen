@@ -77377,7 +77377,6 @@ var Dashboard = function Dashboard() {
     setCurrentAdminPage(page);
   };
 
-  console.log(chartsData);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "main-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -77388,7 +77387,7 @@ var Dashboard = function Dashboard() {
     page: currentAdminPage,
     questions: listquestions,
     answers: listAswers,
-    charts: chartsData
+    graphics: chartsData
   }));
 };
 
@@ -77407,10 +77406,48 @@ var Dashboard = function Dashboard() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PieChart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PieChart */ "./resources/js/components/admin/PieChart.js");
+/* harmony import */ var _RadarChart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RadarChart */ "./resources/js/components/admin/RadarChart.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-var Charts = function Charts() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "12365564");
+
+
+
+var Charts = function Charts(props) {
+  if (props.charts.length !== 0) {
+    var data = props.charts.equipment;
+
+    for (var _i = 0, _Object$entries = Object.entries(data); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+          key = _Object$entries$_i[0],
+          value = _Object$entries$_i[1];
+
+      console.log(data[key]);
+    }
+
+    console.log(props.charts);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "py-3 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title m-b-0"
+  }, "Statistiques des sondages")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PieChart__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PieChart__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PieChart__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChart__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Charts);
@@ -77440,7 +77477,7 @@ var ListAnswer = function ListAnswer(props) {
   for (var i in list) {
     results.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: i,
-      className: "card"
+      className: "card tab"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_1__["default"], {
       title: parseInt(i) + 1 + '.',
       list: list[i],
@@ -77449,7 +77486,7 @@ var ListAnswer = function ListAnswer(props) {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "content"
+    className: "content py-3 px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
@@ -77477,12 +77514,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ListQuestion = function ListQuestion(props) {
-  var title = "Liste des questions";
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: title,
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "py-3 px-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title m-b-0"
+  }, "Liste des questions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tableau__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: "",
     list: props.list,
     column: "Type"
-  });
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListQuestion);
@@ -77627,7 +77669,9 @@ var PageContent = function PageContent(props) {
   }
 
   if (props.page === 'home') {
-    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Charts__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+    content = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Charts__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      charts: props.graphics
+    });
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77638,6 +77682,57 @@ var PageContent = function PageContent(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageContent);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/PieChart.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/admin/PieChart.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PieChart = function PieChart(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-6"
+  }, "pie");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PieChart);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/RadarChart.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/admin/RadarChart.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var RadarChart = function RadarChart(props) {
+  var myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    options: options
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-6"
+  }, "12365564");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RadarChart);
 
 /***/ }),
 
@@ -77656,16 +77751,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Tableau = function Tableau(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "tab py-3 px-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    className: "card-title m-b-0"
-  }, props.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "tab card-body"
+  }, props.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-bordered"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    className: "thead-light"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -77683,7 +77774,7 @@ var Tableau = function Tableau(props) {
     }, row.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col"
     }, (_row$type = row.type) !== null && _row$type !== void 0 ? _row$type : row.value));
-  })))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Tableau);
