@@ -31,6 +31,7 @@ const Dashboard = () => {
     useEffect(() => {
         axios.get('/administration/stats').then(function (response) {
             setChartsData(response.data);
+
         }).catch(function (error) {
             console.log(error);
         });

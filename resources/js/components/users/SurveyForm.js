@@ -38,7 +38,7 @@ const SurveyFrom = () => {
 
     };
 
-    const listQuestions = data.map(function (question, key) {
+    const listQuestions = data.map((question, key)=> {
             const title = 'Question ' + (key + 1) + '/20';
             return <Question key={key} number={key + 1}
                              content={question}
@@ -48,19 +48,19 @@ const SurveyFrom = () => {
         }
     );
 
-    const hasErrorFor = (field) => {
-        return !!this.state.errors[field]
-    };
-
-    const renderErrorFor = (field) => {
-        if (hasErrorFor(field)) {
-            return (
-                <span className='invalid-feedback'>
-              <strong>{this.state.errors[field][0]}</strong>
-            </span>
-            )
-        }
-    };
+    // const hasErrorFor = (field) => {
+    //     return !!this.state.errors[field]
+    // };
+    //
+    // const renderErrorFor = (field) => {
+    //     if (hasErrorFor(field)) {
+    //         return (
+    //             <span className='invalid-feedback'>
+    //           <strong>{this.state.errors[field][0]}</strong>
+    //         </span>
+    //         )
+    //     }
+    // };
 
     return (
         <div className="container py-3">

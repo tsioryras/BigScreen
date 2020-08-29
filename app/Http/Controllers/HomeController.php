@@ -87,9 +87,9 @@ class HomeController extends Controller
 
 
         $equipmentStats = [
-            'marque VR utilisée' => $this->equipmentStats($answer6),
-            'magasin d\'achat VR' => $this->equipmentStats($answer7),
-            'usages principale de Bigscreen' => $this->equipmentStats($answer10)
+            'Marque VR utilisée' => $this->equipmentStats($answer6),
+            'Magasin d\'achat VR' => $this->equipmentStats($answer7),
+            'Usages principale de Bigscreen' => $this->equipmentStats($answer10)
         ];
 
         $qualityStats = [

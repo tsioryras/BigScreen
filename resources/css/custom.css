@@ -1,4 +1,3 @@
-
 .left-sidebar {
     position: fixed !important;
 }
@@ -29,4 +28,8 @@ div.question {
 
 .rigth-side {
     margin-left: 250px;
+}
+
+canvas{
+    color:black;
 }
