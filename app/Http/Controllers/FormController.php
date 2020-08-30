@@ -21,6 +21,15 @@ class FormController extends Controller
     }
 
     /**
+     * @param $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function answer($token)
+    {
+        return view('answer', ['token' => $token]);
+    }
+
+    /**
      * @param Request $request
      * @return JsonResponse
      */
@@ -43,10 +52,10 @@ class FormController extends Controller
             $errorMessage = [];
             foreach ($validateData->errors()->messages() as $index => $value) {
                 foreach ($value as $error) {
-                    $errorMessage[$index] = ($index == 'field1' && strpos($error, 'valid email')) ? 'L\'email n\'est pas valide' : 'Le champ est obligatoire';
+                    $errorMessage[$index] = ($index == 'field1' && strpos($error, 'valid email')) ? 'L\'email n\'est pas valide' : 'Tous les champs sont obligatoires';
                 }
             }
-            return new JsonResponse(['status' => 400, 'message' => $errorMessage]);
+            return new JsonResponse(['status' => 400, 'message' => $errorMessage[0]]);
         }
 
         $dataToSave = [];
@@ -57,7 +66,7 @@ class FormController extends Controller
         }
 
         $link = factory(Link::class)->create();
-        $link->value = Hash::make($data["fie1d1"] . now());
+        $link->value = substr(Hash::make(implode([""], $data) . now()), 7, 15);
 
         foreach ($dataToSave as $index => $value) {
             $answer = factory(Answer::class)->create();
@@ -66,8 +75,12 @@ class FormController extends Controller
             $answer->link()->associate($link);
             $answer->save();
         }
+        $errorMessage = "Toute l’équipe de Bigscreen vous remercie pour votre engagement. 
+        Grâce à votre investissement, nous vous préparons une application toujours plus 
+        facile à utiliser, seul ou en famille.Si vous désirez consulter vos réponse 
+        ultérieurement, vous pouvez consultez cette adresse:";
 
-        return new JsonResponse(['status' => 200, 'message' => $link]);
+        return new JsonResponse(['status' => 200, 'message' => $errorMessage, 'link' => $link]);
     }
 
     /**
@@ -88,11 +101,13 @@ class FormController extends Controller
         return new JsonResponse($questionsDetails);
     }
 
-//    /**
-//     * @return JsonResponse
-//     */
-//    public function answers()
-//    {
-//        return new JsonResponse(Answer::all());
-//    }
+    /**
+     * @param $token
+     * @return JsonResponse
+     */
+    public function answersByUser($token)
+    {
+        $answers = Answer::retrieveOneAnswer($token);
+        return new JsonResponse($answers);
+    }
 }

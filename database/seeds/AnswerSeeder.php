@@ -30,7 +30,6 @@ class AnswerSeeder extends Seeder
                         $specific = false;
                         if ($questions[0] === $question) {
                             $answer->value = $faker->freeEmail;
-                            $link->value = Hash::make($answer->value . now());
                             $specific = true;
                         }
 
@@ -58,6 +57,8 @@ class AnswerSeeder extends Seeder
                 $answer->question()->associate($question);
                 $answer->save();
             }
+            $link->value = substr(Hash::make($linkValue . now()), 7, 15);
+            $link->save();
         }
     }
 }

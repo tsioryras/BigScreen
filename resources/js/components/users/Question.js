@@ -6,11 +6,15 @@ const Question = (props) => {
     if (props.type === 'B') {
         return <QuestionTypeB number={props.number} title={props.title}
                               label={props.content.label} type={props.content.choice}
-                              onRespond={props.onRespond}/>;
+                              onRespond={props.onRespond}
+                              action={props.action}
+                              answer={props.answer}/>;
     } else {
         return <QuestionTypeAC number={props.number} options={props.content.choice}
                                title={props.title} label={props.content.label}
-                               onRespond={props.onRespond}/>;
+                               onRespond={props.onRespond}
+                               action={props.action}
+                               answer={props.answer}/>;
     }
 };
 

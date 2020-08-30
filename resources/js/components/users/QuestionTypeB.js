@@ -7,7 +7,7 @@ const QuestionTypeB = (props) => {
                           placeholder="Saississez votre réponse"
                           onChange={props.onRespond}
                           onLoad={props.onRespond}
-                          resuired></textarea>;
+                          required></textarea>;
     } else {
         input =
             <input id={props.number}

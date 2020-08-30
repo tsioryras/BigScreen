@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FormController@index')->name('index');
 Route::get('/questions', 'FormController@questions')->name('question_list');
 Route::post('/submit', 'FormController@sendAnswer')->name('submit_form');
-Route::get('/{token}', 'FormController@answers')->where(['token' => '[aA-zZ]+'])->name('answer');
+Route::get('/{token}', 'FormController@answer')->name('answers_page');
+Route::post('/{token}', 'FormController@answersByUser')->name('get_user_answers');
 
 //Admin routes
 Auth::routes();

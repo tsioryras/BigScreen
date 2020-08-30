@@ -40,15 +40,15 @@ const SurveyFrom = () => {
                 if (status === 400) {
                     console.log(status, message);
                     setErrorType('warning');
-                    setErrorText('danger');
+                    setErrorText(message);
                     setErrorTitle('Attention!');
                 }
 
                 if (status === 200) {
                     setErrorType('success');
-                    setErrorText('danger');
+                    setErrorText(message);
                     setErrorTitle('Merci à bientôt!');
-                    setErrorLink('/');
+                    setErrorLink(response.data.link);
                 }
 
             })

@@ -121399,10 +121399,6 @@ var Dashboard = function Dashboard() {
     setCurrentAdminPage(page);
   };
 
-  var onLoadDashboard = function onLoadDashboard() {
-    setCurrentAdminPage('home');
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "main-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -122018,8 +122014,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/components/App.js");
 /* harmony import */ var _Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Dashboard */ "./resources/js/components/Dashboard.js");
-/* harmony import */ var _css_custom_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../css/custom.css */ "./resources/css/custom.css");
-/* harmony import */ var _css_custom_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_custom_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _users_AnswerPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users/AnswerPage */ "./resources/js/components/users/AnswerPage.js");
+/* harmony import */ var _css_custom_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../css/custom.css */ "./resources/css/custom.css");
+/* harmony import */ var _css_custom_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_custom_css__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -122027,14 +122025,109 @@ __webpack_require__.r(__webpack_exports__);
 
 var formRenderElement = document.getElementById('root');
 var adminRenderElement = document.getElementById('admin-page');
+var answerRenderElement = document.getElementById('answer-page');
 
 if (formRenderElement) {
   react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), formRenderElement);
 }
 
+if (answerRenderElement) {
+  react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_users_AnswerPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    token: answerRenderElement.getAttribute('data-token')
+  }), answerRenderElement);
+}
+
 if (adminRenderElement) {
   react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null), adminRenderElement);
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/users/AnswerPage.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/users/AnswerPage.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
+/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var AnswerPage = function AnswerPage(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      answers = _useState2[0],
+      setAnswers = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      date = _useState4[0],
+      setDate = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/' + props.token).then(function (response) {
+      setDate(response.data.date);
+      setAnswers(response.data.data);
+    })["catch"](function (error) {
+      console.log(error);
+    }); //
+  }, []);
+  var listAnswers = answers.map(function (answer, key) {
+    var title = 'Question ' + (key + 1) + '/20';
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: key,
+      className: "card question mb-5 py-3 "
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, answer.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      className: "possible-choice py-2"
+    }, answer.answer));
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container py-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card",
+    id: "form-survey"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-12 logo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default.a,
+    alt: "BIG SCREEN"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vous trouverez ci-dessous les r\xE9ponses que vous avez apport\xE9es \xE0 notre sondage le ", date))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body wizard-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "m-t-40"
+  }, listAnswers)))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AnswerPage);
 
 /***/ }),
 
@@ -122098,7 +122191,9 @@ var Question = function Question(props) {
       title: props.title,
       label: props.content.label,
       type: props.content.choice,
-      onRespond: props.onRespond
+      onRespond: props.onRespond,
+      action: props.action,
+      answer: props.answer
     });
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuestionTypeAC__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -122106,7 +122201,9 @@ var Question = function Question(props) {
       options: props.content.choice,
       title: props.title,
       label: props.content.label,
-      onRespond: props.onRespond
+      onRespond: props.onRespond,
+      action: props.action,
+      answer: props.answer
     });
   }
 };
@@ -122185,7 +122282,7 @@ var QuestionTypeB = function QuestionTypeB(props) {
       placeholder: "Saississez votre r\xE9ponse",
       onChange: props.onRespond,
       onLoad: props.onRespond,
-      resuired: true
+      required: true
     });
   } else {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -122315,15 +122412,15 @@ var SurveyFrom = function SurveyFrom() {
       if (status === 400) {
         console.log(status, message);
         setErrorType('warning');
-        setErrorText('danger');
+        setErrorText(message);
         setErrorTitle('Attention!');
       }
 
       if (status === 200) {
         setErrorType('success');
-        setErrorText('danger');
+        setErrorText(message);
         setErrorTitle('Merci à bientôt!');
-        setErrorLink('/');
+        setErrorLink(response.data.link);
       }
     })["catch"](function (error) {
       console.log(error);

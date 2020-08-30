@@ -41,10 +41,6 @@ const Dashboard = () => {
         setCurrentAdminPage(page);
     };
 
-    const onLoadDashboard=()=>{
-        setCurrentAdminPage('home');
-    }
-
     return (
         <div id="main-wrapper">
             <MenuAdmin onChangePage={onNavigateHandler} url="/" page={currentAdminPage}/>
