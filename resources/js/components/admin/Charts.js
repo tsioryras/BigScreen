@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PieChart from './PieChart';
 import RadarChart from './RadarChart';
 
 const Charts = (props) => {
     let equipmentsStats = [];
     let qualityStats = [];
-    let list;
-
+    let listPie;
+    let listRadar;
     const handleData = (data, result) => {
         for (const [key, value] of Object.entries(data)) {
             result.push({'title': key, 'content': value});
@@ -19,21 +19,24 @@ const Charts = (props) => {
     };
 
     if (props.charts.length !== 0) {
-            equipmentsStats = handleData(props.charts.equipment, equipmentsStats);
-            qualityStats = handleData(props.charts.quality, qualityStats);
-            list = equipmentsStats.map((value, key) => {
-                return <PieChart {...value} key={key} data={value} color={getRndInteger}/>
-            });
+        equipmentsStats = handleData(props.charts.equipment, equipmentsStats);
+        qualityStats = handleData(props.charts.quality, qualityStats);
+
+        listPie = equipmentsStats.map((value, key) => {
+            return <PieChart {...value} key={key} data={value} color={getRndInteger}/>
+        });
+
+        listRadar = <RadarChart data={qualityStats} color={getRndInteger}/>;
     }
 
     return (
-        <div className="py-3">
-            <div className="card-header">
+        <div className="py-3 px-3">
+            <div className="card-header col-md-12">
                 <h5 className="card-title m-b-0">Statistiques des sondages</h5>
             </div>
             <div className="row">
-                {list}
-
+                {listPie}
+                {listRadar}
             </div>
         </div>
     );

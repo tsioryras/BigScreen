@@ -41,13 +41,18 @@ const Dashboard = () => {
         setCurrentAdminPage(page);
     };
 
+    const onLoadDashboard=()=>{
+        setCurrentAdminPage('home');
+    }
+
     return (
         <div id="main-wrapper">
             <MenuAdmin onChangePage={onNavigateHandler} url="/" page={currentAdminPage}/>
             <PageContent page={currentAdminPage}
                          questions={listquestions}
                          answers={listAswers}
-                         graphics={chartsData}/>
+                         graphics={chartsData}
+            />
         </div>
     );
 };

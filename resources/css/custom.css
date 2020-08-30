@@ -26,10 +26,25 @@ div.question {
     padding: 0 1rem;
 }
 
-.rigth-side {
-    margin-left: 250px;
+canvas {
+    color: black;
 }
 
-canvas{
-    color:black;
+.right-side {
+    margin-left: 250px !important;
+    width: calc(100% - 250px) !important;
+}
+
+@media screen and (min-width: 992px) {
+    .rigth-side .home {
+        max-width: 95% !important;
+        margin-left: 250px !important;
+        width: calc(100% - 250px) !important;
+        padding: 0 2rem;
+    }
+
+    .right-side {
+        margin-left: 250px !important;
+        width: calc(100% - 250px) !important;
+    }
 }

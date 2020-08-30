@@ -22993,7 +22993,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\n.rigth-side {\r\n    margin-left: 250px;\r\n}\r\n\r\ncanvas{\r\n    color:black;\r\n}", ""]);
+exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\ncanvas {\r\n    color: black;\r\n}\r\n\r\n.right-side {\r\n    margin-left: 250px !important;\r\n    width: calc(100% - 250px) !important;\r\n}\r\n\r\n@media screen and (min-width: 992px) {\r\n    .rigth-side .home {\r\n        max-width: 95% !important;\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n        padding: 0 2rem;\r\n    }\r\n\r\n    .right-side {\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -121399,6 +121399,10 @@ var Dashboard = function Dashboard() {
     setCurrentAdminPage(page);
   };
 
+  var onLoadDashboard = function onLoadDashboard() {
+    setCurrentAdminPage('home');
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "main-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_MenuAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -121451,7 +121455,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Charts = function Charts(props) {
   var equipmentsStats = [];
   var qualityStats = [];
-  var list;
+  var listPie;
+  var listRadar;
 
   var handleData = function handleData(data, result) {
     for (var _i = 0, _Object$entries = Object.entries(data); _i < _Object$entries.length; _i++) {
@@ -121475,24 +121480,28 @@ var Charts = function Charts(props) {
   if (props.charts.length !== 0) {
     equipmentsStats = handleData(props.charts.equipment, equipmentsStats);
     qualityStats = handleData(props.charts.quality, qualityStats);
-    list = equipmentsStats.map(function (value, key) {
+    listPie = equipmentsStats.map(function (value, key) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PieChart__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, value, {
         key: key,
         data: value,
         color: getRndInteger
       }));
     });
+    listRadar = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChart__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      data: qualityStats,
+      color: getRndInteger
+    });
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "py-3"
+    className: "py-3 px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-header"
+    className: "card-header col-md-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title m-b-0"
   }, "Statistiques des sondages")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
-  }, list));
+  }, listPie, listRadar));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Charts);
@@ -121560,7 +121569,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ListQuestion = function ListQuestion(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "py-3 px-3"
+    className: "content py-3 px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
@@ -121719,10 +121728,11 @@ var PageContent = function PageContent(props) {
     });
   }
 
+  var homePage = props.page === 'home' ? 'home' : '';
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rigth-side row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
+    className: 'container ' + homePage
   }, content));
 };
 
@@ -121766,29 +121776,23 @@ var PieChart = function PieChart(props) {
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState2 = _slicedToArray(_useState, 2),
-      datas = _useState2[0],
-      setDatas = _useState2[1]; // const [optionsChart, setOptionsChart] = useState();
-
+      labels = _useState2[0],
+      setLabels = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState4 = _slicedToArray(_useState3, 2),
-      labels = _useState4[0],
-      setLabels = _useState4[1];
+      dataValue = _useState4[0],
+      setDataValue = _useState4[1];
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState6 = _slicedToArray(_useState5, 2),
-      dataValue = _useState6[0],
-      setDataValue = _useState6[1];
+      bgColor = _useState6[0],
+      setBgColor = _useState6[1];
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState8 = _slicedToArray(_useState7, 2),
-      bgColor = _useState8[0],
-      setBgColor = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState10 = _slicedToArray(_useState9, 2),
-      bdColor = _useState10[0],
-      setBdColor = _useState10[1];
+      bdColor = _useState8[0],
+      setBdColor = _useState8[1];
 
   var handleData = function handleData(data) {
     var bgcolors = [];
@@ -121811,7 +121815,7 @@ var PieChart = function PieChart(props) {
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    setDatas(handleData(props.data.content));
+    handleData(props.data.content);
   }, []);
   var dataChart = {
     labels: labels,
@@ -121867,8 +121871,8 @@ var PieChart = function PieChart(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-chartjs-2 */ "./node_modules/react-chartjs-2/es/index.js");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_chartjs_2__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -121885,58 +121889,70 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var RadarChart = function RadarChart(props) {
-  var data = props.data;
   var color = props.color;
-  var ctx = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      labels = _useState2[0],
+      setLabels = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dataValue = _useState4[0],
+      setDataValue = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      bdColor = _useState6[0],
+      setBdColor = _useState6[1];
 
   var handleData = function handleData(data) {
+    var label = [];
     var values = [];
-    var labels = [];
-
-    for (var _i = 0, _Object$entries = Object.entries(data); _i < _Object$entries.length; _i++) {
-      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-          key = _Object$entries$_i[0],
-          value = _Object$entries$_i[1];
-
-      labels.push(value.title);
-      values.push(value.content);
-    }
-
-    return {
-      'labels': labels,
-      'data': values
-    };
+    Object.keys(data).map(function (index) {
+      label.push(data[index].title);
+      values.push(data[index].content);
+    });
+    setLabels(label);
+    setDataValue(values);
+    setBdColor('rgba(' + color(0, 255) + ',' + color(0, 255) + ',' + color(0, 255) + ',1)');
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    handleData(props.data);
+  }, []);
   var chartData = {
-    labels: handleData(data)['labels'],
+    labels: labels,
     datasets: [{
-      label: 'Note quatilé',
-      data: handleData(data)['data'],
-      borderColor: 'rgba(' + color(0, 255) + ',' + color(0, 255) + ',' + color(0, 255) + ',1)'
+      label: 'Notes de qualité',
+      data: dataValue,
+      borderColor: bdColor
     }]
   };
   var options = {
     scale: {
       angleLines: {
-        display: false
+        display: true
       },
       ticks: {
         suggestedMin: 0,
-        suggestedMax: 5
+        suggestedMax: 5,
+        fontSize: 12
       }
+    },
+    legend: {
+      display: true,
+      position: 'top',
+      fontColor: '#000000',
+      fontSize: 16
     }
   };
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    var myRadarChart = new Chart(react__WEBPACK_IMPORTED_MODULE_0___default.a.c, {
-      type: 'radar',
-      data: chartData,
-      options: options
-    });
-  }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
-    ref: ctx
-  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-6 mt-3 mb-5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chartjs_2__WEBPACK_IMPORTED_MODULE_1__["Radar"], {
+    data: chartData,
+    options: options
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RadarChart);

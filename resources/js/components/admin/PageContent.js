@@ -16,9 +16,11 @@ const PageContent = (props) => {
     if (props.page === 'home') {
         content = <Charts charts={props.graphics}/>
     }
+
+    let homePage = props.page === 'home' ? 'home' : '';
     return (
         <div className="rigth-side row">
-            <div className="container">
+            <div className={'container ' + homePage}>
                 {content}
             </div>
         </div>

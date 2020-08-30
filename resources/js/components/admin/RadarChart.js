@@ -1,50 +1,63 @@
-import React, {useEffect} from 'react';
-import Radar from 'chart.js';
+import React, {useEffect, useState} from 'react';
+import {Radar} from 'react-chartjs-2';
 
 const RadarChart = (props) => {
-    const data = props.data;
-    const color = props.color;
-    const ctx = React.createRef();
-    const handleData = (data) => {
-        let values = [];
-        let labels = [];
-        for (const [key, value] of Object.entries(data)) {
-            labels.push(value.title);
-            values.push(value.content);
-        }
-        return {'labels': labels, 'data': values};
-    };
 
-    const chartData = {
-        labels: handleData(data)['labels'],
+    const color = props.color;
+    const [labels, setLabels] = useState();
+    const [dataValue, setDataValue] = useState();
+    const [bdColor, setBdColor] = useState();
+
+    const handleData = (data) => {
+        let label = [];
+        let values = [];
+
+        Object.keys(data).map((index) => {
+            label.push(data[index].title);
+            values.push(data[index].content);
+        });
+
+        setLabels(label);
+        setDataValue(values);
+        setBdColor('rgba(' + color(0, 255) + ',' + color(0, 255) + ',' + color(0, 255) + ',1)');
+    }
+
+    useEffect(() => {
+        handleData(props.data);
+    }, []);
+
+    let chartData = {
+        labels: labels,
         datasets: [{
-            label: 'Note quatilé',
-            data: handleData(data)['data'],
-            borderColor: 'rgba(' + color(0, 255) + ',' + color(0, 255) + ',' + color(0, 255) + ',1)'
+            label: 'Notes de qualité',
+            data: dataValue,
+            borderColor: bdColor
         }]
     };
 
-    const options = {
+    let options = {
         scale: {
             angleLines: {
-                display: false
+                display: true
             },
             ticks: {
                 suggestedMin: 0,
-                suggestedMax: 5
+                suggestedMax: 5,
+                fontSize:12
             }
+        },
+        legend: {
+            display: true,
+            position: 'top',
+            fontColor: '#000000',
+            fontSize: 16
         }
     };
-    useEffect(() => {
-        var myRadarChart = new Chart(React.c, {
-            type: 'radar',
-            data: chartData,
-            options: options
-        });
-    }, []);
 
     return (
-        <canvas ref={ctx}/>
+        <div className="col-md-6 mt-3 mb-5">
+            <Radar data={chartData} options={options}/>
+        </div>
     );
 };
 export default RadarChart;

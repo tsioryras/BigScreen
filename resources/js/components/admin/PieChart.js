@@ -4,8 +4,6 @@ import 'chartjs-plugin-labels';
 
 const PieChart = (props) => {
     const color = props.color;
-    const [datas, setDatas] = useState();
-    // const [optionsChart, setOptionsChart] = useState();
     const [labels, setLabels] = useState();
     const [dataValue, setDataValue] = useState();
     const [bgColor, setBgColor] = useState();
@@ -32,7 +30,7 @@ const PieChart = (props) => {
     }
 
     useEffect(() => {
-        setDatas(handleData(props.data.content));
+        handleData(props.data.content);
     }, []);
 
     let dataChart = {
