@@ -22993,7 +22993,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\ncanvas {\r\n    color: black;\r\n}\r\n\r\n.right-side {\r\n    margin-left: 250px !important;\r\n    width: calc(100% - 250px) !important;\r\n}\r\n\r\n@media screen and (min-width: 992px) {\r\n    .rigth-side .home {\r\n        max-width: 95% !important;\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n        padding: 0 2rem;\r\n    }\r\n\r\n    .right-side {\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\ncanvas {\r\n    color: black;\r\n}\r\n\r\n.right-side {\r\n    margin-left: 250px !important;\r\n    width: calc(100% - 250px) !important;\r\n}\r\n\r\n.close-alert {\r\n    cursor: pointer;\r\n    float: right;\r\n}\r\n\r\n.message-alert {\r\n    margin: auto;\r\n    position: fixed;\r\n    z-index: 9999;\r\n}\r\n\r\n@media screen and (min-width: 992px) {\r\n    .rigth-side .home {\r\n        max-width: 95% !important;\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n        padding: 0 2rem;\r\n    }\r\n\r\n    .right-side {\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -121728,11 +121728,10 @@ var PageContent = function PageContent(props) {
     });
   }
 
-  var homePage = props.page === 'home' ? 'home' : '';
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rigth-side row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'container ' + homePage
+    className: 'container home'
   }, content));
 };
 
@@ -122039,6 +122038,42 @@ if (adminRenderElement) {
 
 /***/ }),
 
+/***/ "./resources/js/components/users/MessageAlert.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/users/MessageAlert.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MessageAlert = function MessageAlert(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mt-3 col-md-6 alert alert-" + props.type + " message-alert " + props.display,
+    role: "alert"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "close-alert ",
+    onClick: props.close
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "mdi mdi-close-box-outline "
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "alert-heading"
+  }, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: props.type != 'success' ? 'd-none' : ''
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: props.link,
+    className: "mb-0"
+  }, "lallalala")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MessageAlert);
+
+/***/ }),
+
 /***/ "./resources/js/components/users/Question.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/users/Question.js ***!
@@ -122108,9 +122143,9 @@ var QuestionTypeAC = function QuestionTypeAC(props) {
       name: 'field' + props.number,
       id: 'question' + props.number + '_' + index,
       value: optionValue,
-      required: true,
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      required: true
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "custom-control-label",
       htmlFor: 'question' + props.number + '_' + index
@@ -122146,19 +122181,21 @@ var QuestionTypeB = function QuestionTypeB(props) {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
       id: props.number,
       name: 'field' + props.number,
-      className: "required  form-control",
+      className: "  form-control",
       placeholder: "Saississez votre r\xE9ponse",
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      resuired: true
     });
   } else {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: props.number,
       name: 'field' + props.number,
       type: props.type,
-      className: "required form-control",
+      className: " form-control",
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      required: true
     });
   }
 
@@ -122191,6 +122228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
 /* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _MessageAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MessageAlert */ "./resources/js/components/users/MessageAlert.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -122214,21 +122252,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SurveyFrom = function SurveyFrom() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState4 = _slicedToArray(_useState3, 2),
       formData = _useState4[0],
       setFormData = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('d-none'),
       _useState6 = _slicedToArray(_useState5, 2),
-      message = _useState6[0],
-      setMessage = _useState6[1];
+      errorDisplay = _useState6[0],
+      setErrorDisplay = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      errorType = _useState8[0],
+      setErrorType = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      errorText = _useState10[0],
+      setErrorText = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      errorLink = _useState12[0],
+      setErrorLink = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState14 = _slicedToArray(_useState13, 2),
+      errorTitle = _useState14[0],
+      setErrorTitle = _useState14[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/questions').then(function (response) {
@@ -122250,11 +122309,33 @@ var SurveyFrom = function SurveyFrom() {
     console.log(formData);
     event.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit', formData).then(function (response) {
-      console.log(response);
+      var status = response.data.status;
+      var message = response.data.message;
+
+      if (status === 400) {
+        console.log(status, message);
+        setErrorType('warning');
+        setErrorText('danger');
+        setErrorTitle('Attention!');
+      }
+
+      if (status === 200) {
+        setErrorType('success');
+        setErrorText('danger');
+        setErrorTitle('Merci à bientôt!');
+        setErrorLink('/');
+      }
     })["catch"](function (error) {
       console.log(error);
-      setMessage('Toutes les questions sont obligatoires !');
+      setErrorType('warning');
+      setErrorTitle('Ooops!');
+      setErrorText('Un erreur serveur est survenue! Veuillez reéessayer');
     });
+    setErrorDisplay('');
+  };
+
+  var onCloseAlert = function onCloseAlert() {
+    setErrorDisplay('d-none');
   };
 
   var listQuestions = data.map(function (question, key) {
@@ -122267,26 +122348,20 @@ var SurveyFrom = function SurveyFrom() {
       title: title,
       onRespond: handleField
     });
-  }); // const hasErrorFor = (field) => {
-  //     return !!this.state.errors[field]
-  // };
-  //
-  // const renderErrorFor = (field) => {
-  //     if (hasErrorFor(field)) {
-  //         return (
-  //             <span className='invalid-feedback'>
-  //           <strong>{this.state.errors[field][0]}</strong>
-  //         </span>
-  //         )
-  //     }
-  // };
-
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container py-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row justify-content-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8 offset-md-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    type: errorType,
+    text: errorText,
+    link: errorLink,
+    title: errorTitle,
+    display: errorDisplay,
+    close: onCloseAlert
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card",
     id: "form-survey"

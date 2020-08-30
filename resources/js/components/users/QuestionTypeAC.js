@@ -9,9 +9,9 @@ const QuestionTypeAC = (props) => {
                     <input type="radio" className="custom-control-input" name={'field' + props.number}
                            id={'question' + props.number + '_' + index}
                            value={optionValue}
-                           required
                            onChange={props.onRespond}
-                           onLoad={props.onRespond}/>
+                           onLoad={props.onRespond}
+                           required/>
                     <label className="custom-control-label" htmlFor={'question' + props.number + '_' + index}>
                         {optionValue}</label>
                 </div>

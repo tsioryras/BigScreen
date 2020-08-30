@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Link;
 use App\Question;
 use Illuminate\Http\Request;
@@ -27,32 +28,46 @@ class FormController extends Controller
     {
         $data = $request->request;
         $validatorRules = [];
+        for ($i = 0; $i < 20; $i++) {
+            $validatorRules['field' . ($i + 1)] = 'required|max:255';
+        }
+
         foreach ($data as $index => $value) {
             if ($index != 'submit') {
-                $validatorRules[$index] = 'required|max:255';
                 $validatorRules[$index] .= $index == 'field1' ? '|email|unique' : '';
-                $validatorRules[$index] .= $index == 'field2' ? '|integer|min:1' : '';
             }
         }
-
         $validateData = Validator::make($request->all(), $validatorRules);
+
         if ($validateData->fails()) {
-            return new JsonResponse($validateData->errors());
+            $errorMessage = [];
+            foreach ($validateData->errors()->messages() as $index => $value) {
+                foreach ($value as $error) {
+                    $errorMessage[$index] = ($index == 'field1' && strpos($error, 'valid email')) ? 'L\'email n\'est pas valide' : 'Le champ est obligatoire';
+                }
+            }
+            return new JsonResponse(['status' => 400, 'message' => $errorMessage]);
         }
 
+        $dataToSave = [];
+        foreach ($data as $index => $value) {
+            if ($index != 'submit') {
+                $dataToSave[str_replace('field', '', $index)] = $value;
+            }
+        }
 
         $link = factory(Link::class)->create();
         $link->value = Hash::make($data["fie1d1"] . now());
 
-//        foreach ($data as $index => $value) {
-//            $answer = factory(Answer::class)->create();
-//            $answer->value = $value;
-//            $answer->question()->associatet(Question::find($index));
-//            $answer->link()->associate($link);
-//            $answer->save();
-//        }
+        foreach ($dataToSave as $index => $value) {
+            $answer = factory(Answer::class)->create();
+            $answer->value = $value;
+            $answer->question()->associatet(Question::find($index));
+            $answer->link()->associate($link);
+            $answer->save();
+        }
 
-        return new JsonResponse($validatorRules);
+        return new JsonResponse(['status' => 200, 'message' => $link]);
     }
 
     /**

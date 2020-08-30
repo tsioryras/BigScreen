@@ -35,6 +35,17 @@ canvas {
     width: calc(100% - 250px) !important;
 }
 
+.close-alert {
+    cursor: pointer;
+    float: right;
+}
+
+.message-alert {
+    margin: auto;
+    position: fixed;
+    z-index: 9999;
+}
+
 @media screen and (min-width: 992px) {
     .rigth-side .home {
         max-width: 95% !important;
