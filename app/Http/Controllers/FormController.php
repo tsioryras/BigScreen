@@ -21,12 +21,12 @@ class FormController extends Controller
     }
 
     /**
-     * @param $token
+     * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function answer($token)
+    public function answer($slug)
     {
-        return view('answer', ['token' => $token]);
+        return view('answer', ['slug' => $slug.'$']);
     }
 
     /**
@@ -102,12 +102,12 @@ class FormController extends Controller
     }
 
     /**
-     * @param $token
+     * @param $slug
      * @return JsonResponse
      */
-    public function answersByUser($token)
+    public function answersByUser($slug)
     {
-        $answers = Answer::retrieveOneAnswer($token);
+        $answers = Answer::retrieveOneAnswer($slug);
         return new JsonResponse($answers);
     }
 }

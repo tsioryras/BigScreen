@@ -7,7 +7,7 @@ const QuestionTypeB = (props) => {
                           placeholder="Saississez votre réponse"
                           onChange={props.onRespond}
                           onLoad={props.onRespond}
-                          ></textarea>;
+                          required></textarea>;
     } else {
         input =
             <input id={props.number}
@@ -15,8 +15,7 @@ const QuestionTypeB = (props) => {
                    type={props.type} className=" form-control"
                    onChange={props.onRespond}
                    onLoad={props.onRespond}
-
-            />;
+                   required/>;
     }
     return (
         <div className={'card question mb-5 py-2 ' + props.display}>
