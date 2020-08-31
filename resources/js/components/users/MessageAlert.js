@@ -8,9 +8,9 @@ const MessageAlert = (props) => {
             </div>
             <h4 className="alert-heading">{props.title}</h4>
             <p>{props.text}</p>
-            <div className={props.type != 'success' ? 'd-none' : ''}>
+            <div className={props.type !== 'success' ? 'd-none' : ''}>
                 <hr/>
-                <a href={props.link} className="mb-0">lallalala</a>
+                <a href={props.link} className="mb-0">{props.link}</a>
             </div>
         </div>
     );

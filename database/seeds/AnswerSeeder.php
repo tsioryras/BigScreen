@@ -20,10 +20,9 @@ class AnswerSeeder extends Seeder
         $questions = Question::all();
 
         for ($i = 0; $i < 20; $i++) {
-            $link = factory(Link::class)->create();
             $linkValue = '';
+            $link = factory(Link::class)->create();
             foreach ($questions as $question) {
-
                 $answer = factory(Answer::class)->create();
                 switch ($question->type->value) {
                     case 'B':
@@ -57,7 +56,7 @@ class AnswerSeeder extends Seeder
                 $answer->question()->associate($question);
                 $answer->save();
             }
-            $link->value = substr(Hash::make($linkValue . now()), 7, 15);
+            $link->value = substr(Hash::make($linkValue . now()), 7, 23);
             $link->save();
         }
     }

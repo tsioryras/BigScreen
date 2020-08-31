@@ -43,16 +43,16 @@ class FormController extends Controller
 
         foreach ($data as $index => $value) {
             if ($index != 'submit') {
-                $validatorRules[$index] .= $index == 'field1' ? '|email|unique' : '';
+                $validatorRules[$index] .= $index == 'field1' ? '|email' : '';
             }
         }
-        $validateData = Validator::make($request->all(), $validatorRules);
 
+        $validateData = Validator::make($request->all(), $validatorRules);
         if ($validateData->fails()) {
             $errorMessage = [];
             foreach ($validateData->errors()->messages() as $index => $value) {
                 foreach ($value as $error) {
-                    $errorMessage[$index] = ($index == 'field1' && strpos($error, 'valid email')) ? 'L\'email n\'est pas valide' : 'Tous les champs sont obligatoires';
+                    $errorMessage[] = ($index == 'field1' || strpos($error, 'valid email')) ? 'L\'email n\'est pas valide' : 'Tous les champs sont obligatoires';
                 }
             }
             return new JsonResponse(['status' => 400, 'message' => $errorMessage[0]]);
@@ -64,14 +64,14 @@ class FormController extends Controller
                 $dataToSave[str_replace('field', '', $index)] = $value;
             }
         }
-
-        $link = factory(Link::class)->create();
-        $link->value = substr(Hash::make(implode([""], $data) . now()), 7, 15);
+        $link = factory(Link::class)->create(
+            ['value' => substr(Hash::make(implode("", $dataToSave) . now()), 7, 23)]
+        );
 
         foreach ($dataToSave as $index => $value) {
             $answer = factory(Answer::class)->create();
             $answer->value = $value;
-            $answer->question()->associatet(Question::find($index));
+            $answer->question()->associate(Question::find($index));
             $answer->link()->associate($link);
             $answer->save();
         }
@@ -80,7 +80,7 @@ class FormController extends Controller
         facile à utiliser, seul ou en famille.Si vous désirez consulter vos réponse 
         ultérieurement, vous pouvez consultez cette adresse:";
 
-        return new JsonResponse(['status' => 200, 'message' => $errorMessage, 'link' => $link]);
+        return new JsonResponse(['status' => 200, 'message' => $errorMessage, 'link' => url('/') . "/" . $link->value]);
     }
 
     /**

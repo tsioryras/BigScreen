@@ -25,20 +25,39 @@ const SurveyFrom = () => {
     const handleField = (event) => {
         const newData = {...formData};
         newData[event.target.name] = event.target.value;
-        console.log(formData);
         setFormData(newData);
     };
 
     const onSendData = (event) => {
         console.log(formData);
         event.preventDefault();
-        axios.post('/submit', formData)
+        axios.post('/submit', {
+            field1: "r@r.fg",
+            field10: "Regarder des films",
+            field11: "2",
+            field12: "2",
+            field13: "4",
+            field14: "2",
+            field15: "3",
+            field16: "non",
+            field17: "non",
+            field18: "non",
+            field19: "non",
+            field2: "tz",
+            field20: "zt",
+            field3: "Préfère ne pas répondre",
+            field4: "4",
+            field5: "ztz",
+            field6: "Windows Mixed Reality",
+            field7: "Viveport",
+            field8: "Occulus Quests",
+            field9: "1"
+        })
             .then(function (response) {
                 const status = response.data.status;
                 const message = response.data.message;
 
                 if (status === 400) {
-                    console.log(status, message);
                     setErrorType('warning');
                     setErrorText(message);
                     setErrorTitle('Attention!');
@@ -50,19 +69,21 @@ const SurveyFrom = () => {
                     setErrorTitle('Merci à bientôt!');
                     setErrorLink(response.data.link);
                 }
-
             })
             .catch(function (error) {
                 console.log(error);
-                setErrorType('warning');
+                setErrorType('danger');
                 setErrorTitle('Ooops!');
-                setErrorText('Un erreur serveur est survenue! Veuillez reéessayer')
+                setErrorText('Un erreur serveur est survenue! Veuillez reéessayer');
             });
         setErrorDisplay('');
     };
 
     const onCloseAlert = () => {
         setErrorDisplay('d-none');
+        setErrorText('');
+        setErrorTitle('');
+        setErrorLink('');
     };
 
     const listQuestions = data.map((question, key) => {
@@ -119,3 +140,4 @@ const SurveyFrom = () => {
 };
 
 export default SurveyFrom;
+

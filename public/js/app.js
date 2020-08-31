@@ -122156,11 +122156,11 @@ var MessageAlert = function MessageAlert(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "alert-heading"
   }, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: props.type != 'success' ? 'd-none' : ''
+    className: props.type !== 'success' ? 'd-none' : ''
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: props.link,
     className: "mb-0"
-  }, "lallalala")));
+  }, props.link)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MessageAlert);
@@ -122241,8 +122241,7 @@ var QuestionTypeAC = function QuestionTypeAC(props) {
       id: 'question' + props.number + '_' + index,
       value: optionValue,
       onChange: props.onRespond,
-      onLoad: props.onRespond,
-      required: true
+      onLoad: props.onRespond
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "custom-control-label",
       htmlFor: 'question' + props.number + '_' + index
@@ -122281,8 +122280,7 @@ var QuestionTypeB = function QuestionTypeB(props) {
       className: "  form-control",
       placeholder: "Saississez votre r\xE9ponse",
       onChange: props.onRespond,
-      onLoad: props.onRespond,
-      required: true
+      onLoad: props.onRespond
     });
   } else {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -122291,8 +122289,7 @@ var QuestionTypeB = function QuestionTypeB(props) {
       type: props.type,
       className: " form-control",
       onChange: props.onRespond,
-      onLoad: props.onRespond,
-      required: true
+      onLoad: props.onRespond
     });
   }
 
@@ -122398,19 +122395,38 @@ var SurveyFrom = function SurveyFrom() {
     var newData = _objectSpread({}, formData);
 
     newData[event.target.name] = event.target.value;
-    console.log(formData);
     setFormData(newData);
   };
 
   var onSendData = function onSendData(event) {
     console.log(formData);
     event.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit', formData).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit', {
+      field1: "r@r.fg",
+      field10: "Regarder des films",
+      field11: "2",
+      field12: "2",
+      field13: "4",
+      field14: "2",
+      field15: "3",
+      field16: "non",
+      field17: "non",
+      field18: "non",
+      field19: "non",
+      field2: "tz",
+      field20: "zt",
+      field3: "Préfère ne pas répondre",
+      field4: "4",
+      field5: "ztz",
+      field6: "Windows Mixed Reality",
+      field7: "Viveport",
+      field8: "Occulus Quests",
+      field9: "1"
+    }).then(function (response) {
       var status = response.data.status;
       var message = response.data.message;
 
       if (status === 400) {
-        console.log(status, message);
         setErrorType('warning');
         setErrorText(message);
         setErrorTitle('Attention!');
@@ -122424,7 +122440,7 @@ var SurveyFrom = function SurveyFrom() {
       }
     })["catch"](function (error) {
       console.log(error);
-      setErrorType('warning');
+      setErrorType('danger');
       setErrorTitle('Ooops!');
       setErrorText('Un erreur serveur est survenue! Veuillez reéessayer');
     });
@@ -122433,6 +122449,9 @@ var SurveyFrom = function SurveyFrom() {
 
   var onCloseAlert = function onCloseAlert() {
     setErrorDisplay('d-none');
+    setErrorText('');
+    setErrorTitle('');
+    setErrorLink('');
   };
 
   var listQuestions = data.map(function (question, key) {
