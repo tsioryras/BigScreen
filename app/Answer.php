@@ -44,14 +44,14 @@ class Answer extends Model
     }
 
     /**
-     * @param $token
+     * @param $slug
      * @return array
      */
-    public static function retrieveOneAnswer($token)
+    public static function retrieveOneAnswer($slug)
     {
         $data = [];
         $link = DB::table('Links')
-            ->where('value', '=', $token)
+            ->where('value', '=', trim($slug, '$'))
             ->get();
         $answers = DB::table('Answers')
             ->where('link_id', '=', $link[0]->id)

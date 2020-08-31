@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Question from './Question';
 import axios from "axios";
-import logo from "../../../images/bigscreen_logo_white.png";
+import logo from "../../../images/bigscreen_logo.png";
 import MessageAlert from "./MessageAlert";
 
 const SurveyFrom = () => {
@@ -29,30 +29,10 @@ const SurveyFrom = () => {
     };
 
     const onSendData = (event) => {
+        setErrorDisplay('d-none');
         console.log(formData);
         event.preventDefault();
-        axios.post('/submit', {
-            field1: "r@r.fg",
-            field10: "Regarder des films",
-            field11: "2",
-            field12: "2",
-            field13: "4",
-            field14: "2",
-            field15: "3",
-            field16: "non",
-            field17: "non",
-            field18: "non",
-            field19: "non",
-            field2: "tz",
-            field20: "zt",
-            field3: "Préfère ne pas répondre",
-            field4: "4",
-            field5: "ztz",
-            field6: "Windows Mixed Reality",
-            field7: "Viveport",
-            field8: "Occulus Quests",
-            field9: "1"
-        })
+        axios.post('/submit_form', formData)
             .then(function (response) {
                 const status = response.data.status;
                 const message = response.data.message;
@@ -122,8 +102,8 @@ const SurveyFrom = () => {
                                     <div className="row">
                                         <div className="offset-10">
                                             <button className="btn btn-success"
-                                                    id="submit"
-                                                    name="submit"
+                                                    id="submitAnswer"
+                                                    name="submitAnswer"
                                                     type="submit">
                                                 Finaliser
                                             </button>

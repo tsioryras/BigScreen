@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 //Guests routes
 Route::get('/', 'FormController@index')->name('index');
-Route::get('/questions', 'FormController@questions')->name('question_list');
-Route::post('/submit', 'FormController@sendAnswer')->name('submit_form');
-Route::get('/{token}', 'FormController@answer')->name('answers_page');
-Route::post('/{token}', 'FormController@answersByUser')->name('get_user_answers');
+Route::get('/questions', 'FormController@questions')->name('questions');
+Route::post('/submit_form', 'FormController@sendAnswer')->name('submit_form');
+Route::get('/{slug}$', 'FormController@answer')->name('answers_page');
+Route::post('/{slug}$', 'FormController@answersByUser')->name('get_user_answers');
 
 //Admin routes
 Auth::routes();

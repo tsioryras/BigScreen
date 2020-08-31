@@ -22993,7 +22993,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\ncanvas {\r\n    color: black;\r\n}\r\n\r\n.right-side {\r\n    margin-left: 250px !important;\r\n    width: calc(100% - 250px) !important;\r\n}\r\n\r\n.close-alert {\r\n    cursor: pointer;\r\n    float: right;\r\n}\r\n\r\n.message-alert {\r\n    margin: auto;\r\n    position: fixed;\r\n    z-index: 9999;\r\n}\r\n\r\n@media screen and (min-width: 992px) {\r\n    .rigth-side .home {\r\n        max-width: 95% !important;\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n        padding: 0 2rem;\r\n    }\r\n\r\n    .right-side {\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".left-sidebar {\r\n    position: fixed !important;\r\n}\r\n\r\n.logo img {\r\n    margin: 1rem 0;\r\n    width: 10rem;\r\n}\r\n\r\n.logout {\r\n    float: right;\r\n    list-style:none;\r\n}\r\n\r\nspan.logo img {\r\n    margin: auto;\r\n}\r\n\r\n#form-survey, .wizard-content, .tab {\r\n    background: darkgrey;\r\n    color: black;\r\n}\r\n\r\ndiv.question {\r\n    background: #6c757d;\r\n    padding: 2rem;\r\n}\r\n\r\n.possible-choice {\r\n    border: black dashed 0.125rem;\r\n    padding: 0 1rem;\r\n}\r\n\r\ncanvas {\r\n    color: black;\r\n}\r\n\r\n.right-side {\r\n    margin-left: 250px !important;\r\n    width: calc(100% - 250px) !important;\r\n}\r\n\r\n.close-alert {\r\n    cursor: pointer;\r\n    float: right;\r\n}\r\n\r\n.message-alert {\r\n    margin: auto;\r\n    position: fixed;\r\n    z-index: 9999;\r\n}\r\n\r\n@media screen and (min-width: 992px) {\r\n    .rigth-side .home {\r\n        max-width: 95% !important;\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n        padding: 0 2rem;\r\n    }\r\n\r\n    .right-side {\r\n        margin-left: 250px !important;\r\n        width: calc(100% - 250px) !important;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -121196,14 +121196,14 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/images/bigscreen_logo_white.png":
-/*!***************************************************!*\
-  !*** ./resources/images/bigscreen_logo_white.png ***!
-  \***************************************************/
+/***/ "./resources/images/bigscreen_logo.png":
+/*!*********************************************!*\
+  !*** ./resources/images/bigscreen_logo.png ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bigscreen_logo_white.png?feba69493c4993a9dbd68eedc96c92f3";
+module.exports = "/images/bigscreen_logo.png?feba69493c4993a9dbd68eedc96c92f3";
 
 /***/ }),
 
@@ -121593,8 +121593,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MenuItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MenuItem */ "./resources/js/components/admin/MenuItem.js");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo.png */ "./resources/images/bigscreen_logo.png");
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -121617,7 +121617,7 @@ var MenuAdmin = function MenuAdmin(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "logo-text logo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default.a
+    src: _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2___default.a
   }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "scroll-sidebar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -122056,8 +122056,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../images/bigscreen_logo.png */ "./resources/images/bigscreen_logo.png");
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -122085,15 +122085,17 @@ var AnswerPage = function AnswerPage(props) {
       date = _useState4[0],
       setDate = _useState4[1];
 
+  var listAnswers;
+  var message;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/' + props.token).then(function (response) {
       setDate(response.data.date);
       setAnswers(response.data.data);
     })["catch"](function (error) {
       console.log(error);
-    }); //
+    });
   }, []);
-  var listAnswers = answers.map(function (answer, key) {
+  listAnswers = answers.map(function (answer, key) {
     var title = 'Question ' + (key + 1) + '/20';
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
@@ -122102,6 +122104,7 @@ var AnswerPage = function AnswerPage(props) {
       className: "possible-choice py-2"
     }, answer.answer));
   });
+  message = answers == [] ? 'Page introuvable' : 'Vous trouverez ci-dessous les réponses que vous avez apportées à notre sondage le ' + date;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container py-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -122116,9 +122119,9 @@ var AnswerPage = function AnswerPage(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-12 logo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_2___default.a,
+    src: _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_2___default.a,
     alt: "BIG SCREEN"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vous trouverez ci-dessous les r\xE9ponses que vous avez apport\xE9es \xE0 notre sondage le ", date))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body wizard-content"
@@ -122145,6 +122148,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MessageAlert = function MessageAlert(props) {
+  var link = props.link + '$';
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-3 col-md-6 alert alert-" + props.type + " message-alert " + props.display,
     role: "alert"
@@ -122158,9 +122162,10 @@ var MessageAlert = function MessageAlert(props) {
   }, props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: props.type !== 'success' ? 'd-none' : ''
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: props.link,
-    className: "mb-0"
-  }, props.link)));
+    href: link,
+    className: "mb-0",
+    target: "_blank"
+  }, link)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MessageAlert);
@@ -122241,7 +122246,8 @@ var QuestionTypeAC = function QuestionTypeAC(props) {
       id: 'question' + props.number + '_' + index,
       value: optionValue,
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      required: true
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       className: "custom-control-label",
       htmlFor: 'question' + props.number + '_' + index
@@ -122280,7 +122286,8 @@ var QuestionTypeB = function QuestionTypeB(props) {
       className: "  form-control",
       placeholder: "Saississez votre r\xE9ponse",
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      required: true
     });
   } else {
     input = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -122289,7 +122296,8 @@ var QuestionTypeB = function QuestionTypeB(props) {
       type: props.type,
       className: " form-control",
       onChange: props.onRespond,
-      onLoad: props.onRespond
+      onLoad: props.onRespond,
+      required: true
     });
   }
 
@@ -122320,8 +122328,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question */ "./resources/js/components/users/Question.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../images/bigscreen_logo_white.png */ "./resources/images/bigscreen_logo_white.png");
-/* harmony import */ var _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../images/bigscreen_logo.png */ "./resources/images/bigscreen_logo.png");
+/* harmony import */ var _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _MessageAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MessageAlert */ "./resources/js/components/users/MessageAlert.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -122399,30 +122407,10 @@ var SurveyFrom = function SurveyFrom() {
   };
 
   var onSendData = function onSendData(event) {
+    setErrorDisplay('d-none');
     console.log(formData);
     event.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit', {
-      field1: "r@r.fg",
-      field10: "Regarder des films",
-      field11: "2",
-      field12: "2",
-      field13: "4",
-      field14: "2",
-      field15: "3",
-      field16: "non",
-      field17: "non",
-      field18: "non",
-      field19: "non",
-      field2: "tz",
-      field20: "zt",
-      field3: "Préfère ne pas répondre",
-      field4: "4",
-      field5: "ztz",
-      field6: "Windows Mixed Reality",
-      field7: "Viveport",
-      field8: "Occulus Quests",
-      field9: "1"
-    }).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/submit_form', formData).then(function (response) {
       var status = response.data.status;
       var message = response.data.message;
 
@@ -122486,7 +122474,7 @@ var SurveyFrom = function SurveyFrom() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-12 logo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bigscreen_logo_white_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+    src: _images_bigscreen_logo_png__WEBPACK_IMPORTED_MODULE_3___default.a,
     alt: "BIG SCREEN"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Merci de r\xE9pondre \xE0 toutes les questions et de valider le formulaire en bas de page"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
@@ -122501,8 +122489,8 @@ var SurveyFrom = function SurveyFrom() {
     className: "offset-10"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "btn btn-success",
-    id: "submit",
-    name: "submit",
+    id: "submitAnswer",
+    name: "submitAnswer",
     type: "submit"
   }, "Finaliser"))))))))));
 };

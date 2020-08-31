@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import logo from "../../../images/bigscreen_logo_white.png";
+import logo from "../../../images/bigscreen_logo.png";
 
 const MenuAdmin = (props) => {
 

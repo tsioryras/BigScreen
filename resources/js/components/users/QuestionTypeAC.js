@@ -11,6 +11,7 @@ const QuestionTypeAC = (props) => {
                            value={optionValue}
                            onChange={props.onRespond}
                            onLoad={props.onRespond}
+                           required
                            />
                     <label className="custom-control-label" htmlFor={'question' + props.number + '_' + index}>
                         {optionValue}</label>

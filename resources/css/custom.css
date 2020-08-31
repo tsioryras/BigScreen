@@ -7,6 +7,11 @@
     width: 10rem;
 }
 
+.logout {
+    float: right;
+    list-style:none;
+}
+
 span.logo img {
     margin: auto;
 }

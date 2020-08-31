@@ -21,12 +21,12 @@ class FormController extends Controller
     }
 
     /**
-     * @param $token
+     * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function answer($token)
+    public function answer($slug)
     {
-        return view('answer', ['token' => $token]);
+        return view('answer', ['slug' => $slug.'$']);
     }
 
     /**
@@ -65,7 +65,7 @@ class FormController extends Controller
             }
         }
         $link = factory(Link::class)->create(
-            ['value' => substr(Hash::make(implode("", $dataToSave) . now()), 7, 23)]
+            ['value' => trim(substr(Hash::make(implode("", $dataToSave) . now()), 7, 23),'/')]
         );
 
         foreach ($dataToSave as $index => $value) {
@@ -102,12 +102,12 @@ class FormController extends Controller
     }
 
     /**
-     * @param $token
+     * @param $slug
      * @return JsonResponse
      */
-    public function answersByUser($token)
+    public function answersByUser($slug)
     {
-        $answers = Answer::retrieveOneAnswer($token);
+        $answers = Answer::retrieveOneAnswer($slug);
         return new JsonResponse($answers);
     }
 }
