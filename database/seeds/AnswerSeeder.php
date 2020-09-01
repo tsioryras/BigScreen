@@ -4,7 +4,6 @@ use App\Answer;
 use App\Link;
 use App\Question;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class AnswerSeeder extends Seeder
 {
@@ -56,7 +55,6 @@ class AnswerSeeder extends Seeder
                 $answer->question()->associate($question);
                 $answer->save();
             }
-            $link->value = substr(Hash::make($linkValue . now()), 7, 23);
             $link->save();
         }
     }

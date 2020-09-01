@@ -4,13 +4,16 @@ import logo from "../../../images/bigscreen_logo.png";
 
 const AnswerPage = (props) => {
     const [answers, setAnswers] = useState([]);
-    const [date, setDate] = useState();
+    const [message, setMessage] = useState('Page introuvable !');
     let listAnswers;
-    let message;
     useEffect(() => {
         axios.post('/' + props.token).then(function (response) {
-            setDate(response.data.date);
-            setAnswers(response.data.data);
+            if (response.data !== false) {
+                setAnswers(response.data.data);
+                setMessage('Vous trouverez ci-dessous les réponses que vous avez apportées à notre sondage le ' + response.data.date);
+            } else {
+                setMessage(errorMessage);
+            }
         }).catch(function (error) {
             console.log(error);
         });
@@ -27,8 +30,6 @@ const AnswerPage = (props) => {
             </div>
         }
     );
-
-    message = answers==[]?'Page introuvable':'Vous trouverez ci-dessous les réponses que vous avez apportées à notre sondage le ' + date;
 
     return (
         <div className="container py-3">

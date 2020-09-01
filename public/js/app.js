@@ -122080,17 +122080,20 @@ var AnswerPage = function AnswerPage(props) {
       answers = _useState2[0],
       setAnswers = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('Page introuvable !'),
       _useState4 = _slicedToArray(_useState3, 2),
-      date = _useState4[0],
-      setDate = _useState4[1];
+      message = _useState4[0],
+      setMessage = _useState4[1];
 
   var listAnswers;
-  var message;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/' + props.token).then(function (response) {
-      setDate(response.data.date);
-      setAnswers(response.data.data);
+      if (response.data !== false) {
+        setAnswers(response.data.data);
+        setMessage('Vous trouverez ci-dessous les réponses que vous avez apportées à notre sondage le ' + response.data.date);
+      } else {
+        setMessage(errorMessage);
+      }
     })["catch"](function (error) {
       console.log(error);
     });
@@ -122104,7 +122107,6 @@ var AnswerPage = function AnswerPage(props) {
       className: "possible-choice py-2"
     }, answer.answer));
   });
-  message = answers == [] ? 'Page introuvable' : 'Vous trouverez ci-dessous les réponses que vous avez apportées à notre sondage le ' + date;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container py-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

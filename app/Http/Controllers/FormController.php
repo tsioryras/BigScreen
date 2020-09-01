@@ -6,7 +6,6 @@ use App\Answer;
 use App\Link;
 use App\Question;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -26,7 +25,7 @@ class FormController extends Controller
      */
     public function answer($slug)
     {
-        return view('answer', ['slug' => $slug.'$']);
+        return view('answer', ['slug' => $slug . '$']);
     }
 
     /**
@@ -64,9 +63,8 @@ class FormController extends Controller
                 $dataToSave[str_replace('field', '', $index)] = $value;
             }
         }
-        $link = factory(Link::class)->create(
-            ['value' => trim(substr(Hash::make(implode("", $dataToSave) . now()), 7, 23),'/')]
-        );
+
+        $link = factory(Link::class)->create();
 
         foreach ($dataToSave as $index => $value) {
             $answer = factory(Answer::class)->create();
@@ -108,6 +106,10 @@ class FormController extends Controller
     public function answersByUser($slug)
     {
         $answers = Answer::retrieveOneAnswer($slug);
+        if ($answers === false) {
+            redirect()->route('get_user_answers');
+            return null;
+        }
         return new JsonResponse($answers);
     }
 }

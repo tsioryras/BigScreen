@@ -45,7 +45,7 @@ class Answer extends Model
 
     /**
      * @param $slug
-     * @return array
+     * @return array|bool
      */
     public static function retrieveOneAnswer($slug)
     {
@@ -53,16 +53,20 @@ class Answer extends Model
         $link = DB::table('Links')
             ->where('value', '=', trim($slug, '$'))
             ->get();
-        $answers = DB::table('Answers')
-            ->where('link_id', '=', $link[0]->id)
-            ->get();
-        $data['date'] = date_format(new DateTime($link[0]->created_at), 'd.m.Y à H:i');
-        foreach ($answers as $answer) {
-            $data['data'][] = [
-                'label' => Question::find($answer->question_id)->label,
-                'answer' => $answer->value
-            ];
+        if ($link != []) {
+            $answers = DB::table('Answers')
+                ->where('link_id', '=', $link[0]->id)
+                ->get();
+            $data['date'] = date_format(new DateTime($link[0]->created_at), 'd.m.Y à H:i');
+            foreach ($answers as $answer) {
+                $data['data'][] = [
+                    'label' => Question::find($answer->question_id)->label,
+                    'answer' => $answer->value
+                ];
+            }
+            return $data;
+        } else {
+            return false;
         }
-        return $data;
     }
 }
