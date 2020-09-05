@@ -4,7 +4,7 @@ Pour l'installation, allez dans le répertoire de votre choix et ouvrez-y votre
 console ou invite de commande.
 
 Ensuite lancer la commande :
-- git clone https://github.com/tsioryras/we_fashion.git
+- git clone https://github.com/tsioryras/bigscreen.git
 - ou téléchargez le fichier bigscreen.zip
 
 Une fois le téléchargement fini, lancez votre serveur local et modifier le fichier .env en fonction de votre environnement.
