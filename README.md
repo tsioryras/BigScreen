@@ -38,5 +38,5 @@ Ensuite, un lien pour voir les réponses sera afficher.
 ## Admin User
 Le seul administarteur est le seul à pouvoir se connecter. Pour cela, il aura les identifiants suivant:
 
-- email: admin@bisscreen.bs
+- email: admin@bigscreen.bs
 - mot de passe : 123456789
